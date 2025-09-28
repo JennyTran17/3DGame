@@ -11,11 +11,11 @@ public class Door : MonoBehaviour {
 	public float smooth = 1.0f;
 	float DoorOpenAngle = -90.0f;
     float DoorCloseAngle = 0.0f;
-	public AudioSource asource;
-	public AudioClip openDoor,closeDoor;
+	//public AudioSource asource;
+	//public AudioClip openDoor,closeDoor;
 	// Use this for initialization
 	void Start () {
-		asource = GetComponent<AudioSource> ();
+		//asource = GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -35,9 +35,17 @@ public class Door : MonoBehaviour {
 	}
 
 	public void OpenDoor(){
-		open =!open;
-		asource.clip = open?openDoor:closeDoor;
-		asource.Play ();
+		open = true;
+			//asource.clip = open?openDoor:closeDoor;
+			//asource.Play ();
+
+		StartCoroutine(autoClose(4));
+	}
+
+	IEnumerator autoClose(int time)
+	{
+			yield return new WaitForSeconds(time);
+			open = false;
 	}
 }
 }
