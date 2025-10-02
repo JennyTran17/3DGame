@@ -5,25 +5,25 @@ using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour
 {
-    Outline outline;
+   // Outline outline;
     public string message;
     public UnityEvent onInteraction;
 
-    private void Start()
-    {
-        outline = GetComponent<Outline>();
-        DisableOutline();
-    }
+    //private void Start()
+    //{
+    //    outline = GetComponent<Outline>();
+    //    DisableOutline();
+    //}
 
-    public void DisableOutline()
-    {
-        outline.enabled = false;
-    }
+    //public void DisableOutline()
+    //{
+    //    outline.enabled = false;
+    //}
 
-    public void EnableOutline()
-    {
-        outline.enabled = true;
-    }
+    //public void EnableOutline()
+    //{
+    //    outline.enabled = true;
+    //}
 
     public void Interact()
     {

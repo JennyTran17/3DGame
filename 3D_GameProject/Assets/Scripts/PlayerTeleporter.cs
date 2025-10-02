@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerTeleporter : MonoBehaviour
 {
     public Transform TeleportZoneObject;
+    public bool isForwardTrigger = true;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -23,6 +24,12 @@ public class PlayerTeleporter : MonoBehaviour
 
                 cc.enabled = true;
             }
+
+            if (LoopManager.Instance != null)
+            {
+                LoopManager.Instance.HandleTriggerEntry(isForwardTrigger);
+            }
+
         }
     }
 }

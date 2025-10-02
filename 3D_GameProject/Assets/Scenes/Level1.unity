@@ -24009,6 +24009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hallwayCount: 0
+  anomalyResetDistance: 4
 --- !u!4 &2136990973
 Transform:
   m_ObjectHideFlags: 0

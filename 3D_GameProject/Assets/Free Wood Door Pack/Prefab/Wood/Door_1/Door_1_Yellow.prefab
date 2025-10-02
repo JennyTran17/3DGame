@@ -237,7 +237,6 @@ GameObject:
   - component: {fileID: 82942158350999012}
   - component: {fileID: 114296553472034236}
   - component: {fileID: 7841408022102431525}
-  - component: {fileID: 7100410818921391882}
   m_Layer: 0
   m_Name: Door
   m_TagString: Interactable
@@ -470,21 +469,3 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7100410818921391882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1988184177506868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94aaf4c0a0414004c807d2dff216f1e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
