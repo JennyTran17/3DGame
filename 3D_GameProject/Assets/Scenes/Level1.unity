@@ -1110,7 +1110,7 @@ Transform:
   m_GameObject: {fileID: 490320527}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 70, y: 5.1, z: 81.9}
+  m_LocalPosition: {x: 65.53, y: 5.1, z: 81.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3062,14 +3062,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1056768849}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.9969025, y: -0, z: 4.92}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -34.5, y: -0, z: 9.7}
   m_LocalScale: {x: 0.47, y: 1.87, z: 4.49}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 81532094}
   m_Father: {fileID: 1577379705}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!65 &1056768851
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3172,6 +3172,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anomalyPrefab: {fileID: 4479534914922501177, guid: 4b0a02d24656caa43a50c6b9fd855ff7, type: 3}
   anomalySpawn: {fileID: 490320528}
+  totalHallways: 10
+  numberOfAnomalies: 5
 --- !u!4 &1065380504
 Transform:
   m_ObjectHideFlags: 0
@@ -21583,7 +21585,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8616685848737228371, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: MoveSpeed
-      value: 7
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616685848737228371, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: SprintSpeed
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_Name
@@ -24010,6 +24016,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hallwayCount: 0
   anomalyResetDistance: 4
+  hallwayText: {fileID: 81532095}
 --- !u!4 &2136990973
 Transform:
   m_ObjectHideFlags: 0

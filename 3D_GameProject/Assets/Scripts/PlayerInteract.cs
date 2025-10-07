@@ -6,6 +6,7 @@ public class PlayerInteract : MonoBehaviour
 {
     public float playerReach = 3f;
     Interactable currentInteractable;
+    [SerializeField] GameObject flashlight;
 
     // Update is called once per frame
     void Update()
@@ -15,6 +16,22 @@ public class PlayerInteract : MonoBehaviour
         {
             currentInteractable.Interact();
         }
+
+        if (Input.GetKeyDown(KeyCode.F))         
+        {
+           
+            if (flashlight.activeInHierarchy)
+            {
+                flashlight.SetActive(false);
+              
+            }
+            else
+            {
+                flashlight.SetActive(true);
+             
+            }
+        }
+       
     }
 
     void CheckInteraction()

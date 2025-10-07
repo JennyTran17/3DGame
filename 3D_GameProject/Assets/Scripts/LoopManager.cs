@@ -1,45 +1,28 @@
 ﻿using System;
 using UnityEngine;
+using TMPro;
 
 public class LoopManager : MonoBehaviour
 {
     public static LoopManager Instance;
 
     public int hallwayCount = 0;
-    public float anomalyResetDistance = 4f;
+    public float anomalyResetDistance = 7f;
     private bool isReverseMode = false;
+    public TMPro.TextMeshPro hallwayText;
 
     private void Awake()
     {
         Instance = this;
     }
-    //public void HandleTriggerEntry(bool isForward)
-    //{
-    //    // Get player movement direction since the last frame
-    //    Transform player = GameObject.FindGameObjectWithTag("Player").transform;
-    //    Vector3 playerMovement = player.GetComponent<CharacterController>().velocity;
 
-    //    // This checks if the player is moving in the expected direction
-    //    // The dot product is crucial here. Let's assume your hallway's forward is Vector3.forward.
-    //    Vector3 hallwayDirection = Vector3.forward; // You can set this manually or from your level design
-    //    float dotProduct = Vector3.Dot(playerMovement.normalized, hallwayDirection.normalized);
-    //    bool isMovingHallwayForward = dotProduct > 0.1f;
-
-    //    // Correctly handle the hallway progression based on direction
-    //    if (isForward && isMovingHallwayForward)
-    //    {
-    //        IncrementHallway();
-    //    }
-    //    else if (!isForward && !isMovingHallwayForward)
-    //    {
-    //        DecrementHallway();
-    //    }
-    //    else
-    //    {
-    //        // Player entered the wrong trigger for their current direction, do nothing.
-    //        Debug.Log("Player tried to cheat the loop. No change.");
-    //    }
-    //}
+    private void Update()
+    {
+        if (hallwayText != null)
+        {
+            UpdateText();
+        }
+    }
 
     public void HandleTriggerEntry(bool isForwardTrigger)
     {
@@ -84,10 +67,14 @@ public class LoopManager : MonoBehaviour
             {
                 IncrementHallway();
             }
-            else if (isForwardTrigger && isMovingHallwayForward && isCloseToAnomaly)
+            else if (isForwardTrigger && anomalyActive)
             {
                 // Wrong way, reset
                 ResetLevel();
+            }
+            else if(isForwardTrigger && !anomalyActive)
+            {
+                DecrementHallway();
             }
         }
         else // Normal forward mode
@@ -119,6 +106,7 @@ public class LoopManager : MonoBehaviour
         Debug.Log("Game Reset - back in elevator");
 
         AnomalyManager.Instance.ResetAnomalies();
+        isReverseMode = false;
         // TODO: teleport player back into elevator
     }
 
@@ -131,4 +119,9 @@ public class LoopManager : MonoBehaviour
         AnomalyManager.Instance.OnLoopProgress(hallwayCount);
     }
 
+
+    void UpdateText()
+    {
+        hallwayText.text = "Hall " + hallwayCount;
+    }
 }

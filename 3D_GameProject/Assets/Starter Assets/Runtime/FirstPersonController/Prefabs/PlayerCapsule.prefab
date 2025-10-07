@@ -3652,3 +3652,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerReach: 15
+  flashlight: {fileID: 3042281100387619467}
