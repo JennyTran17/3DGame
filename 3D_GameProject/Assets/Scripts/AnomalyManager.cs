@@ -7,16 +7,18 @@ public class AnomalyManager : MonoBehaviour
     public static AnomalyManager Instance;
 
     [Header("Anomalies")]
-    public GameObject anomalyPrefab;
-    public Transform anomalySpawn;
+    public List<GameObject> anomalyPrefabs = new List<GameObject>();
+    public List<Transform> anomalySpawns = new List<Transform>();
 
     [Header("Settings")]
     public int totalHallways = 10;
-    public int numberOfAnomalies = 5; // How many anomalies you want in total
+    public int numberOfAnomalies = 7; // How many anomalies you want in total
 
     private GameObject currentAnomaly;
     private List<int> anomalyHallways = new List<int>();
     private int currentIndex = 0;
+    private int lastUsedSpawnIndex = -1; // -1 means no spawn yet
+
 
     private void Awake()
     {
@@ -64,8 +66,31 @@ public class AnomalyManager : MonoBehaviour
 
         if (currentIndex < anomalyHallways.Count && hallway == anomalyHallways[currentIndex])
         {
-            currentAnomaly = Instantiate(anomalyPrefab, anomalySpawn.position, anomalySpawn.rotation);
-            Debug.Log("Anomaly spawned at hallway " + hallway);
+            if (anomalyPrefabs.Count > 0)
+            {
+                GameObject randomAnomaly = anomalyPrefabs[Random.Range(0, anomalyPrefabs.Count)];
+                if (anomalySpawns.Count >= 2)
+                {
+                    // Alternate spawn index: if last was A(0), use B(1), and vice versa
+                    int nextSpawnIndex = (lastUsedSpawnIndex == 0) ? 1 : 0;
+
+                    Transform spawnPoint = anomalySpawns[nextSpawnIndex];
+                    currentAnomaly = Instantiate(randomAnomaly, spawnPoint.position, spawnPoint.rotation);
+                    Debug.Log($"Anomaly '{randomAnomaly.name}' spawned at hallway {hallway} using SpawnPoint {nextSpawnIndex}");
+
+                    lastUsedSpawnIndex = nextSpawnIndex;
+                }
+                else
+                {
+                    Debug.LogWarning("You need at least 2 spawn points in 'anomalySpawns' for alternating positions.");
+                }
+
+            }
+            else
+            {
+                Debug.LogWarning("No anomaly prefabs assigned to AnomalyManager.");
+            }
+
             currentIndex++;
         }
 

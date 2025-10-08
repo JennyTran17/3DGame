@@ -185,7 +185,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -1492,7 +1493,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -3170,8 +3172,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835c79d5fffa70a43ac71efe8d2e5b27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anomalyPrefab: {fileID: 4479534914922501177, guid: 4b0a02d24656caa43a50c6b9fd855ff7, type: 3}
-  anomalySpawn: {fileID: 490320528}
+  anomalyPrefabs: []
+  anomalySpawns: []
+  totalHallways: 10
+  numberOfAnomalies: 7
 --- !u!4 &1065380504
 Transform:
   m_ObjectHideFlags: 0
@@ -24009,6 +24013,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hallwayCount: 0
+  anomalyResetDistance: 7
+  hallwayText: {fileID: 0}
 --- !u!4 &2136990973
 Transform:
   m_ObjectHideFlags: 0
