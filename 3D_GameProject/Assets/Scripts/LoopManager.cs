@@ -8,7 +8,7 @@ public class LoopManager : MonoBehaviour
 
     public int hallwayCount = 0;
     public float anomalyResetDistance = 7f;
-    private bool isReverseMode = false;
+    public bool isReverseMode = false;
     public TMPro.TextMeshPro hallwayText;
 
     private void Awake()

@@ -72,13 +72,14 @@ public class AnomalyManager : MonoBehaviour
                 if (anomalySpawns.Count >= 2)
                 {
                     // Alternate spawn index: if last was A(0), use B(1), and vice versa
-                    int nextSpawnIndex = (lastUsedSpawnIndex == 0) ? 1 : 0;
+                    bool reverseMode = LoopManager.Instance.isReverseMode;
 
-                    Transform spawnPoint = anomalySpawns[nextSpawnIndex];
+                    Transform spawnPoint = reverseMode ? anomalySpawns[1] : anomalySpawns[0];
                     currentAnomaly = Instantiate(randomAnomaly, spawnPoint.position, spawnPoint.rotation);
-                    Debug.Log($"Anomaly '{randomAnomaly.name}' spawned at hallway {hallway} using SpawnPoint {nextSpawnIndex}");
+                    Debug.Log($"Anomaly '{randomAnomaly.name}' spawned at hallway {hallway} | ReverseMode: {reverseMode}");
 
-                    lastUsedSpawnIndex = nextSpawnIndex;
+
+                    lastUsedSpawnIndex = reverseMode ? 1 : 0;
                 }
                 else
                 {
