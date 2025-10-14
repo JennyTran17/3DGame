@@ -147,19 +147,35 @@ public class GameManager : MonoBehaviour
 
     private void TryActivateHint(int hallway)
     {
-        // Prevent multiple activations in the same hallway
+        // Prevent reactivation in same hallway
         if (usedHintHallways.Contains(hallway))
             return;
 
-        if (Random.value <= hintAppearChance && hintObjects.Count > 0)
+        // Roll chance
+        if (Random.value > hintAppearChance || hintObjects.Count == 0)
+            return;
+
+        // Get all inactive hints
+        List<GameObject> inactiveHints = new List<GameObject>();
+        foreach (var hint in hintObjects)
         {
-            GameObject hint = hintObjects[Random.Range(0, hintObjects.Count)];
             if (hint != null && !hint.activeSelf)
-            {
-                hint.SetActive(true);
-                usedHintHallways.Add(hallway);
-                Debug.Log($"[GameManager] Hint activated at hallway {hallway}.");
-            }
+                inactiveHints.Add(hint);
         }
+
+        if (inactiveHints.Count == 0)
+        {
+            Debug.Log("[GameManager] All hints are already active. No available hint to show.");
+            return;
+        }
+
+        // Pick a random inactive hint
+        GameObject hintToActivate = inactiveHints[Random.Range(0, inactiveHints.Count)];
+
+        hintToActivate.SetActive(true);
+        usedHintHallways.Add(hallway);
+
+        Debug.Log($"[GameManager] Activated hint '{hintToActivate.name}' at hallway {hallway}.");
     }
+
 }
