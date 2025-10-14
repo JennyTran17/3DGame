@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8274197228697980176}
   - component: {fileID: 1398198143881163623}
   - component: {fileID: 2832244181874267879}
+  - component: {fileID: 3486947855283317184}
+  - component: {fileID: 6547628345633306777}
   m_Layer: 0
   m_Name: Paper
   m_TagString: Untagged
@@ -105,3 +107,45 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3486947855283317184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4978564520383939154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f39afce0045511b44924249f9ec18be4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gObject: {fileID: 0}
+  gObject2: {fileID: 4978564520383939154}
+--- !u!114 &6547628345633306777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4978564520383939154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 578889e3b242187498e2d67f0754061a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: Read
+  onInteraction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3486947855283317184}
+        m_TargetAssemblyTypeName: SetOnOff, Assembly-CSharp
+        m_MethodName: ToggleOn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
