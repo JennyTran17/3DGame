@@ -35,7 +35,7 @@ public class AnomalyManager : MonoBehaviour
         List<int> allPossibleHallways = new List<int>();
 
         // Populate from 1 to totalHallways
-        for (int i = 1; i <= totalHallways; i++)
+        for (int i = 2; i <= totalHallways; i++)
         {
             allPossibleHallways.Add(i);
         }

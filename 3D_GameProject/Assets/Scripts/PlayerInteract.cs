@@ -29,7 +29,7 @@ public class PlayerInteract : MonoBehaviour
             DropItem();
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && GameManager.Instance.flashlightActivated)
 
         {
 

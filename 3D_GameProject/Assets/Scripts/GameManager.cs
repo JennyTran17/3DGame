@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Progress Tracking")]
     public int levelCount = 1;
-    private bool flashlightActivated = false;
+    public bool flashlightActivated = false;
     private bool elevatorActive = true;
     private HashSet<int> usedHintHallways = new HashSet<int>();
 
