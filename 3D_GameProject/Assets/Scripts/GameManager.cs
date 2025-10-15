@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public GameObject triggerBackwards;
     public GameObject flashlight;       // Flashlight object in scene
     public List<GameObject> hintObjects; // Preplaced hints in scene
+    private List<GameObject> hintActivationPool = new List<GameObject>();
+
 
     [Header("Hint Control")]
     [Tooltip("Hallway indexes where hints can appear")]
@@ -141,9 +143,34 @@ public class GameManager : MonoBehaviour
                     hint.SetActive(false);
             }
 
+            // Reset hint activation pool
+            ResetHintActivationPool();
+
             Debug.Log("[GameManager] Elevator reactivated at hallway 10.");
         }
     }
+    private void ResetHintActivationPool()
+    {
+        hintActivationPool.Clear();
+
+        foreach (var hint in hintObjects)
+        {
+            if (hint != null)
+                hintActivationPool.Add(hint);
+        }
+
+        // Shuffle the list
+        for (int i = 0; i < hintActivationPool.Count; i++)
+        {
+            int randIndex = Random.Range(i, hintActivationPool.Count);
+            var temp = hintActivationPool[i];
+            hintActivationPool[i] = hintActivationPool[randIndex];
+            hintActivationPool[randIndex] = temp;
+        }
+
+        Debug.Log("[GameManager] Hint activation pool has been shuffled.");
+    }
+
 
     private void TryActivateHint(int hallway)
     {
@@ -152,30 +179,26 @@ public class GameManager : MonoBehaviour
             return;
 
         // Roll chance
-        if (Random.value > hintAppearChance || hintObjects.Count == 0)
+        if (Random.value > hintAppearChance || hintActivationPool.Count == 0)
             return;
 
-        // Get all inactive hints
-        List<GameObject> inactiveHints = new List<GameObject>();
-        foreach (var hint in hintObjects)
+        // Pop a hint from the pool
+        GameObject hintToActivate = hintActivationPool[0];
+        hintActivationPool.RemoveAt(0);
+
+        if (hintToActivate != null)
         {
-            if (hint != null && !hint.activeSelf)
-                inactiveHints.Add(hint);
+            hintToActivate.SetActive(true);
+            usedHintHallways.Add(hallway);
+            Debug.Log($"[GameManager] Activated hint '{hintToActivate.name}' at hallway {hallway}.");
         }
 
-        if (inactiveHints.Count == 0)
-        {
-            Debug.Log("[GameManager] All hints are already active. No available hint to show.");
-            return;
-        }
-
-        // Pick a random inactive hint
-        GameObject hintToActivate = inactiveHints[Random.Range(0, inactiveHints.Count)];
-
-        hintToActivate.SetActive(true);
-        usedHintHallways.Add(hallway);
-
-        Debug.Log($"[GameManager] Activated hint '{hintToActivate.name}' at hallway {hallway}.");
+        //// Optional: reshuffle the pool if all hints have been used
+        //if (hintActivationPool.Count == 0)
+        //{
+        //    Debug.Log("[GameManager] All hints have been used once. Reshuffling...");
+        //    ResetHintActivationPool();
+        //}
     }
 
 }
