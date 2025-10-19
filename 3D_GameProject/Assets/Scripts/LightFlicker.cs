@@ -7,61 +7,31 @@ public class LightFlicker : MonoBehaviour
     public Light lightOB;
     public AudioSource lightSound;
 
-    [Header("Random Flicker Settings")]
-    public bool useRandomFlicker = true;
-    public float minTime = 0.1f;
-    public float maxTime = 0.5f;
-
     [Header("Morse Flicker Settings")]
-    public string morsePattern = "...--";
-    public float dotDuration = 0.2f;      // Short flash
-    public float dashDuration = 0.6f;     // Long flash
-    public float intraSymbolPause = 0.2f; // Pause between dots/dashes
-    public float interPatternPause = 1.5f;// Pause after full sequence
+    public string morsePattern = "...--";  // Morse code for number 3
+    public float dotDuration = 0.3f;       // Short flash
+    public float dashDuration = 1.5f;      // Long flash
+    public float intraSymbolPause = 0.5f;  // Pause between dots/dashes
+    public float interPatternPause = 3f; // Pause after full sequence
 
-    private float timer;
     private Coroutine morseRoutine;
 
-    void Start()
+    private void OnEnable()
     {
-        if (useRandomFlicker)
+        if (lightOB == null)
         {
-            timer = Random.Range(minTime, maxTime);
+            Debug.LogError("LightFlicker: No Light assigned!");
+            return;
         }
-        else
-        {
-            if (lightOB == null)
-            {
-                Debug.LogError("LightFlicker: No Light assigned!");
-                return;
-            }
 
-            morseRoutine = StartCoroutine(MorseFlicker());
-        }
+        // Restart the morse flicker whenever this object becomes active
+        morseRoutine = StartCoroutine(MorseFlicker());
     }
 
-    void Update()
+    private void OnDisable()
     {
-        if (useRandomFlicker)
-        {
-            RandomFlicker();
-        }
-    }
-
-    void RandomFlicker()
-    {
-        if (timer > 0)
-        {
-            timer -= Time.deltaTime;
-        }
-
-        if (timer <= 0)
-        {
-            lightOB.enabled = !lightOB.enabled;
-            if (lightSound != null) lightSound.Play();
-
-            timer = Random.Range(minTime, maxTime);
-        }
+        if (morseRoutine != null)
+            StopCoroutine(morseRoutine);
     }
 
     IEnumerator MorseFlicker()
@@ -77,21 +47,20 @@ public class LightFlicker : MonoBehaviour
                 else if (symbol == '-')
                     duration = dashDuration;
                 else
-                    continue; // skip spaces or invalid chars
+                    continue; // Skip invalid chars or spaces
 
-                // Turn light on
+                // Turn light ON
                 lightOB.enabled = true;
                 if (lightSound != null) lightSound.Play();
 
                 yield return new WaitForSeconds(duration);
 
-                // Turn light off
+                // Turn light OFF
                 lightOB.enabled = false;
-
                 yield return new WaitForSeconds(intraSymbolPause);
             }
 
-            // Pause between full Morse cycles
+            // Pause before repeating the full Morse pattern
             yield return new WaitForSeconds(interPatternPause);
         }
     }

@@ -7,25 +7,22 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [Header("Scene References")]
-    public GameObject elevator;         // Elevator object in scene
+    public GameObject elevatorA;
+    public GameObject elevatorB;         
     public GameObject triggerBackwards;
-    public GameObject flashlight;       // Flashlight object in scene
+    public GameObject triggerForward;
+    public GameObject flashlight;    
     public List<GameObject> hintObjects; // Preplaced hints in scene
-    private List<GameObject> hintActivationPool = new List<GameObject>();
-
 
     [Header("Hint Control")]
-    [Tooltip("Hallway indexes where hints can appear")]
-    public List<int> hintHallways = new List<int> { 2, 4, 6, 8 }; // configurable
-
-    [Range(0f, 1f)]
-    public float hintAppearChance = 0.5f; // 50% chance for hint to appear when eligible
+    public List<int> hintHallways = new List<int> { 2, 3, 5, 7, 8 }; 
 
     [Header("Progress Tracking")]
     public int levelCount = 1;
     public bool flashlightActivated = false;
     private bool elevatorActive = true;
-    private HashSet<int> usedHintHallways = new HashSet<int>();
+    public Queue<GameObject> hintQueue = new Queue<GameObject>();
+    private GameObject previousHint;
 
     private void Awake()
     {
@@ -37,20 +34,23 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        // Make sure all hints start inactive
-        foreach (var hint in hintObjects)
-        {
-            if (hint != null)
-                hint.SetActive(false);
-        }
+        StateManager.Instance.SetState(GameState.Normal);
+        if (elevatorA != null) elevatorA.SetActive(true);
+        if (elevatorB != null) elevatorB.SetActive(false);
 
-        if(triggerBackwards != null)
+        if (triggerBackwards != null)
         {
             triggerBackwards.SetActive(false);
+            triggerForward.SetActive(true);
         }
 
         if (flashlight != null)
             flashlight.SetActive(false);
+
+        foreach (var hint in hintObjects)
+            if (hint != null) hint.SetActive(false);
+
+        ResetHintQueue();
 
         StartCoroutine(TrackHallwayProgress());
     }
@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
         // Elevator disappears after first loop
         if (hallway >= 1 && elevatorActive)
         {
-            DeactivateElevator();
+            DeactivateElevators();
         }
 
         // Random hint activation at configured hallways
@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
         // Elevator reappears at hallway 10
         if (hallway == 10)
         {
-            ActivateElevator();
+            ActivateElevatorBasedOnDirection();
             levelCount++;
             Debug.Log($"Reached hallway 10. Floor {levelCount} started.");
         }
@@ -110,95 +110,108 @@ public class GameManager : MonoBehaviour
         {
             flashlight.SetActive(true);
             flashlightActivated = true;
+            
             Debug.Log("[GameManager] Flashlight activated after first loop.");
         }
     }
 
-    private void DeactivateElevator()
+    private void DeactivateElevators()
     {
-        if (elevator != null)
-        {
-            elevator.SetActive(false);
-            elevatorActive = false;
-            Debug.Log("[GameManager] Elevator deactivated after first loop.");
-        }
+        if (elevatorA != null) elevatorA.SetActive(false);
+        if (elevatorB != null) elevatorB.SetActive(false);
+        elevatorActive = false;
+        Debug.Log("[GameManager] Both elevators deactivated after first loop.");
 
+        StateManager.Instance.SetState(GameState.ElevatorGone);
         triggerBackwards.SetActive(true);
+        triggerForward.SetActive(true);
     }
 
-    private void ActivateElevator()
+    private void ActivateElevatorBasedOnDirection()
     {
-        if (elevator != null)
+        // Determine which elevator to activate based on player's direction
+        bool isReversed = LoopManager.Instance.isReverseMode;
+
+        if (isReversed)
         {
-            elevator.SetActive(true);
-            elevatorActive = true;
-            flashlightActivated = false; // reset for next level if needed
-            usedHintHallways.Clear();
-            triggerBackwards.SetActive(false);
-
-            // Deactivate all hints for next floor
-            foreach (var hint in hintObjects)
-            {
-                if (hint != null)
-                    hint.SetActive(false);
-            }
-
-            // Reset hint activation pool
-            ResetHintActivationPool();
-
-            Debug.Log("[GameManager] Elevator reactivated at hallway 10.");
+            if (elevatorA != null) elevatorA.SetActive(true);
+            if (elevatorB != null) elevatorB.SetActive(false);
+            Debug.Log("[GameManager] Player reversed, activated Elevator A.");
+            if (triggerBackwards != null)
+                triggerBackwards.SetActive(false);
         }
-    }
-    private void ResetHintActivationPool()
-    {
-        hintActivationPool.Clear();
+        else
+        {
+            if (elevatorB != null) elevatorB.SetActive(true);
+            if (elevatorA != null) elevatorA.SetActive(false);
+            Debug.Log("[GameManager] Player forward, activated Elevator B.");
+            if (triggerBackwards != null)
+                triggerForward.SetActive(false);
 
+        }
+
+        StateManager.Instance.SetState(GameState.FinalHallway);
+        elevatorActive = true;
+        flashlightActivated = false;
+
+        
+
+        // Reset hints for new floor
         foreach (var hint in hintObjects)
         {
             if (hint != null)
-                hintActivationPool.Add(hint);
+                hint.SetActive(false);
         }
 
-        // Shuffle the list
-        for (int i = 0; i < hintActivationPool.Count; i++)
+        ResetHintQueue();
+    
+    }
+    private void ResetHintQueue()
+    {
+        List<GameObject> shuffledHints = new List<GameObject>(hintObjects);
+
+        // Shuffle hints randomly
+        for (int i = 0; i < shuffledHints.Count; i++)
         {
-            int randIndex = Random.Range(i, hintActivationPool.Count);
-            var temp = hintActivationPool[i];
-            hintActivationPool[i] = hintActivationPool[randIndex];
-            hintActivationPool[randIndex] = temp;
+            int randIndex = Random.Range(i, shuffledHints.Count);
+            var temp = shuffledHints[i];
+            shuffledHints[i] = shuffledHints[randIndex];
+            shuffledHints[randIndex] = temp;
         }
 
-        Debug.Log("[GameManager] Hint activation pool has been shuffled.");
+        hintQueue.Clear();
+        foreach (var hint in shuffledHints)
+        {
+            if (hint != null)
+            {
+                hint.SetActive(false);
+                hintQueue.Enqueue(hint);
+            }
+        }
+
+        Debug.Log("[GameManager] Hint queue reset and shuffled.");
     }
 
 
     private void TryActivateHint(int hallway)
     {
-        // Prevent reactivation in same hallway
-        if (usedHintHallways.Contains(hallway))
-            return;
-
-        // Roll chance
-        if (Random.value > hintAppearChance || hintActivationPool.Count == 0)
-            return;
-
-        // Pop a hint from the pool
-        GameObject hintToActivate = hintActivationPool[0];
-        hintActivationPool.RemoveAt(0);
-
-        if (hintToActivate != null)
+        if (hintQueue.Count == 0)
         {
-            hintToActivate.SetActive(true);
-            usedHintHallways.Add(hallway);
-            Debug.Log($"[GameManager] Activated hint '{hintToActivate.name}' at hallway {hallway}.");
+            ResetHintQueue();
+            Debug.Log("[GameManager] All hints used once. Queue reshuffled.");
         }
 
-        //// Optional: reshuffle the pool if all hints have been used
-        //if (hintActivationPool.Count == 0)
-        //{
-        //    Debug.Log("[GameManager] All hints have been used once. Reshuffling...");
-        //    ResetHintActivationPool();
-        //}
+        GameObject hintToActivate = hintQueue.Dequeue();
+        if (hintToActivate != null)
+        {
+            if (previousHint != null && previousHint.activeSelf) {
+                previousHint.SetActive(false); 
+            }
+
+            hintToActivate.SetActive(true);
+            Debug.Log($"[GameManager] Activated hint '{hintToActivate.name}' at hallway {hallway}.");
+            previousHint = hintToActivate;
+        }
     }
 
 }
