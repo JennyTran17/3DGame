@@ -4,50 +4,86 @@ using UnityEngine.Rendering.Universal;
 
 public class LoopVisualEffects : MonoBehaviour
 {
+    [Header("References")]
     public Volume globalVolume;
+
+    [Header("General Intensity Control")]
+    public float baseWeight = 0.3f;
+    public float maxWeight = 1.0f;
+    public float smoothSpeed = 0.8f;        // How quickly values interpolate
+    public float intensityGrowthRate = 0.001f; // How fast the effects increase over time
+
+    [Header("Vignette Settings")]
+    public float maxVignetteIntensity = 0.4f;
+
+    [Header("Chromatic Aberration Settings")]
+    public float maxChromaticAberration = 1.0f;
+
+    [Header("Film Grain Settings")]
+    public bool enableFilmGrain = true;
+    public float maxFilmGrainIntensity = 0.7f;
 
     private Vignette vignette;
     private ChromaticAberration chromaticAberration;
+    private FilmGrain filmGrain;
 
-    public float baseWeight = 0.3f;
-    public float maxWeight = 1.0f;
+    private float progressT;         // 0–1 over game progression
+    private float currentWeight;
+    private float currentVignette;
+    private float currentChromatic;
+    private float currentGrain;
 
-    public float maxVignetteIntensity = 0.6f;
-    public float maxChromaticAberration = 1.0f;
+    private float gameTime;          // Internal timer
 
     void Start()
     {
         if (globalVolume == null)
         {
-            Debug.Log("Global Volume not assigned!");
+            Debug.LogWarning("Global Volume not assigned!");
             return;
         }
 
-        // Get effect components from the volume profile
         globalVolume.profile.TryGet(out vignette);
         globalVolume.profile.TryGet(out chromaticAberration);
+        globalVolume.profile.TryGet(out filmGrain);
+
+        currentWeight = baseWeight;
+        currentVignette = 0f;
+        currentChromatic = 0f;
+        currentGrain = 0f;
+        progressT = 0f;
+        gameTime = 0f;
     }
 
     void Update()
     {
-        int loopCount = LoopManager.Instance.hallwayCount;
+        // Gradually increase progression over time
+        gameTime += Time.deltaTime * intensityGrowthRate;
+        progressT = Mathf.Clamp01(gameTime); // normalized 0–1 range
 
-        // Normalize the loop count into a 0–1 range (adjust max loop threshold to taste)
-        float t = Mathf.Clamp01(loopCount / 20f);
+        // Smooth interpolation of effects
+        currentWeight = Mathf.Lerp(currentWeight, Mathf.Lerp(baseWeight, maxWeight, progressT), Time.deltaTime * smoothSpeed);
+        currentVignette = Mathf.Lerp(currentVignette, Mathf.Lerp(0f, maxVignetteIntensity, progressT), Time.deltaTime * smoothSpeed);
+        currentChromatic = Mathf.Lerp(currentChromatic, Mathf.Lerp(0f, maxChromaticAberration, progressT), Time.deltaTime * smoothSpeed);
 
-        // Update weight (overall intensity of the volume)
-        globalVolume.weight = Mathf.Lerp(baseWeight, maxWeight, t);
+        if (enableFilmGrain)
+            currentGrain = Mathf.Lerp(currentGrain, Mathf.Lerp(0f, maxFilmGrainIntensity, progressT), Time.deltaTime * smoothSpeed);
 
-        // Update Vignette intensity
-        if (vignette != null)
-        {
-            vignette.intensity.value = Mathf.Lerp(0f, maxVignetteIntensity, t);
-        }
+        // Apply the values
+        if (vignette != null) vignette.intensity.value = currentVignette;
+        if (chromaticAberration != null) chromaticAberration.intensity.value = currentChromatic;
+        if (filmGrain != null && enableFilmGrain) filmGrain.intensity.value = currentGrain;
 
-        // Update Chromatic Aberration
-        if (chromaticAberration != null)
-        {
-            chromaticAberration.intensity.value = Mathf.Lerp(0f, maxChromaticAberration, t);
-        }
+        globalVolume.weight = currentWeight;
+
+        //// Subtle camera drift to simulate psychological unease
+        //if (progressT > 0.7f)
+        //{
+        //    Camera.main.transform.localPosition += Random.insideUnitSphere * 0.0025f * progressT;
+        //}
+    }
+    public void AdvanceProgress(float amount)
+    {
+        progressT = Mathf.Clamp01(progressT + amount);
     }
 }

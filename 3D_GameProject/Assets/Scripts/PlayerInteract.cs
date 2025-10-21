@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerInteract : MonoBehaviour
 {
     [Header("Settings")]
-    public float playerReach = 3f;
+    public float playerReach = 10f;
     public Transform pickUpParent;  // Where held items go (e.g. under camera)
     [SerializeField] GameObject flashlight;
 
@@ -48,10 +48,13 @@ public class PlayerInteract : MonoBehaviour
 
     void CheckInteraction()
     {
+        int layerMask = ~LayerMask.GetMask("Player");
         Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, playerReach))
+        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * playerReach, Color.red);
+
+        if (Physics.Raycast(ray, out hit, playerReach, layerMask))
         {
             Interactable newInteractable = hit.collider.GetComponent<Interactable>();
 
@@ -61,6 +64,7 @@ public class PlayerInteract : MonoBehaviour
                 {
                     currentInteractable = newInteractable;
                     HUDController.instance.EnableInteractionText(currentInteractable.message);
+                    
                 }
                 return;
             }
