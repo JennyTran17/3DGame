@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
     public List<int> hintHallways = new List<int> { 2, 3, 5, 7, 8 }; 
 
     [Header("Progress Tracking")]
-    public int levelCount = 1;
     public bool flashlightActivated = false;
     private bool elevatorActive = true;
     public Queue<GameObject> hintQueue = new Queue<GameObject>();
@@ -99,8 +98,8 @@ public class GameManager : MonoBehaviour
         if (hallway == 10)
         {
             ActivateElevatorBasedOnDirection();
-            levelCount++;
-            Debug.Log($"Reached hallway 10. Floor {levelCount} started.");
+            LevelManager.instance.currentLevel += 1;
+            Debug.Log($"Reached hallway 10.");
         }
     }
 

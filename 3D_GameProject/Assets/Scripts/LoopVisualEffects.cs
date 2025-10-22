@@ -27,13 +27,13 @@ public class LoopVisualEffects : MonoBehaviour
     private ChromaticAberration chromaticAberration;
     private FilmGrain filmGrain;
 
-    private float progressT;         // 0–1 over game progression
+    private float progressT;         // 0-1 over game progression
     private float currentWeight;
     private float currentVignette;
     private float currentChromatic;
     private float currentGrain;
 
-    private float gameTime;          // Internal timer
+    private float gameTime;   
 
     void Start()
     {
@@ -59,7 +59,7 @@ public class LoopVisualEffects : MonoBehaviour
     {
         // Gradually increase progression over time
         gameTime += Time.deltaTime * intensityGrowthRate;
-        progressT = Mathf.Clamp01(gameTime); // normalized 0–1 range
+        progressT = Mathf.Clamp01(gameTime); // normalized 0-1 range
 
         // Smooth interpolation of effects
         currentWeight = Mathf.Lerp(currentWeight, Mathf.Lerp(baseWeight, maxWeight, progressT), Time.deltaTime * smoothSpeed);
@@ -75,12 +75,6 @@ public class LoopVisualEffects : MonoBehaviour
         if (filmGrain != null && enableFilmGrain) filmGrain.intensity.value = currentGrain;
 
         globalVolume.weight = currentWeight;
-
-        //// Subtle camera drift to simulate psychological unease
-        //if (progressT > 0.7f)
-        //{
-        //    Camera.main.transform.localPosition += Random.insideUnitSphere * 0.0025f * progressT;
-        //}
     }
     public void AdvanceProgress(float amount)
     {

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AnomalyBehavior : MonoBehaviour
 {
-    private bool playerInZone = false;
+    private bool playerInZone;
 
     private void OnTriggerEnter(Collider other)
     {
