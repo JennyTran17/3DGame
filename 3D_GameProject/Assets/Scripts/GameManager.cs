@@ -151,7 +151,8 @@ public class GameManager : MonoBehaviour
 
         StateManager.Instance.SetState(GameState.FinalHallway);
         elevatorActive = true;
-        flashlightActivated = false;
+        //flashlightActivated = false;
+        //flashlight.SetActive(false);
 
         
 
