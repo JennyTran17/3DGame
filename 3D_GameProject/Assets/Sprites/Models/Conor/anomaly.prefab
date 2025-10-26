@@ -706,6 +706,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0e31b19122680ea4c9c05505defeec5f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5663337292259524797}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0e31b19122680ea4c9c05505defeec5f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2223023096922216204}
   m_SourcePrefab: {fileID: 100100000, guid: 0e31b19122680ea4c9c05505defeec5f, type: 3}
 --- !u!1 &81715185439561141 stripped
 GameObject:
@@ -759,3 +762,20 @@ MonoBehaviour:
     speed: 5
     waitTime: 0.1
   rotationSpeed: 3
+--- !u!114 &2223023096922216204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81715185439561141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9e0eff107838f74fb620353d2fd6ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 421522017414238161}
+  layerName: New Layer
+  anomalyIntervalRange: {x: 3, y: 8}
+  anomalyDuration: 5
+  blendDuration: 1
