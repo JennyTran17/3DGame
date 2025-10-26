@@ -19,7 +19,8 @@ public class LevelManager : MonoBehaviour
     {
         if (instance == null)
             instance = this;
-        DontDestroyOnLoad(instance);
+        else
+            Destroy(instance);
     }
 
     private void Update()

@@ -16,36 +16,29 @@ public class WallTextManager : MonoBehaviour
     [TextArea]
     public List<string> hallwayTexts = new List<string>
     {
-        "I told you not to go that way.",
         "You think you’re escaping?",
-        "Why do you keep coming back?",
-        "Keep walking. See where that gets you.",
-        "It feels familiar, doesn’t it?",
         "It can see you",
         "Something’s wrong behind you.",
-        "You never learn, do you?",
+        "Stop going forward",
+        "You never learn, do you",
         "Someone was killed here",
-        "All you can do is walk back and forth",
         "WATCH OUT",
         "Listen to me or you'll die"
     };
 
     private string currentDisplayedText;
-    private int hallwayTextIndex = 0;
     private int lastHallwayCount = -1;
 
     private void Start()
     {
         if (dynamicText == null)
         {
-            Debug.LogError("WallTextManager: Missing TextMeshPro reference!");
             return;
         }
 
         currentDisplayedText = startText;
         dynamicText.text = currentDisplayedText;
 
-        // Subscribe to state and hallway events
         StateManager.Instance.OnStateChanged += OnGameStateChanged;
         StartCoroutine(MonitorHallwayProgress());
     }
@@ -56,10 +49,8 @@ public class WallTextManager : MonoBehaviour
             StateManager.Instance.OnStateChanged -= OnGameStateChanged;
     }
 
-    // --- Called when GameManager updates state ---
     private void OnGameStateChanged(GameState newState)
     {
-        // Only react to specific states
         if (newState == GameState.Normal)
         {
             ChangeWallText(startText);
@@ -74,7 +65,6 @@ public class WallTextManager : MonoBehaviour
         }
     }
 
-    // --- Called every time hallway count changes ---
     private IEnumerator MonitorHallwayProgress()
     {
         lastHallwayCount = LoopManager.Instance.hallwayCount;
@@ -85,22 +75,34 @@ public class WallTextManager : MonoBehaviour
 
             if (currentHallway != lastHallwayCount)
             {
-                OnHallwayUpdated();
+                UpdateTextBasedOnHallway(currentHallway);
                 lastHallwayCount = currentHallway;
             }
 
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.1f);
         }
     }
 
-    private void OnHallwayUpdated()
+    private void UpdateTextBasedOnHallway(int hallway)
     {
-        if (hallwayTexts.Count == 0) return;
-
-        string newText = hallwayTexts[hallwayTextIndex];
-        hallwayTextIndex = (hallwayTextIndex + 1) % hallwayTexts.Count;
-
-        ChangeWallText(newText);
+        if (hallway == 0)
+        {
+            ChangeWallText(startText);
+        }
+        else if (hallway == 1)
+        {
+            ChangeWallText(elevatorGoneText);
+        }
+        else if (hallway >= 10)
+        {
+            ChangeWallText(elevatorAppearText);
+        }
+        else
+        {
+            
+            int index = Mathf.Clamp(hallway - 2, 0, hallwayTexts.Count - 1);
+            ChangeWallText(hallwayTexts[index]);
+        }
     }
 
     private void ChangeWallText(string newText)
