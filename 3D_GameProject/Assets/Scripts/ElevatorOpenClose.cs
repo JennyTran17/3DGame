@@ -7,22 +7,14 @@ public class ElevatorOpenClose : MonoBehaviour
     //public bool open;
     [SerializeField] Animator doorLeft;
     [SerializeField] Animator doorRight;
-    private void Update()
-    {
-        //if (open)
-        //{
-            
-        //}
-        //else
-        //{
-           
-        //}
-    }
+    [SerializeField] AudioSource slideEffect;
+ 
     public void OpenDoor()
     {
         //open = true;
         doorLeft.SetTrigger("open");
         doorRight.SetTrigger("open");
+        slideEffect.Play();
         StartCoroutine(autoClose(4));
     }
 
@@ -32,5 +24,6 @@ public class ElevatorOpenClose : MonoBehaviour
        // open = false;
         doorLeft.SetTrigger("close");
         doorRight.SetTrigger("close");
+        slideEffect.Play();
     }
 }

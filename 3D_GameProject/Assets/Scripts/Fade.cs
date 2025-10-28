@@ -22,7 +22,7 @@ public class Fade : MonoBehaviour
     }
 
 
-    private IEnumerator BlinkSequence()
+    public IEnumerator BlinkSequence()
     {
         for (int i = 0; i < blinkCount; i++)
         {
@@ -34,5 +34,17 @@ public class Fade : MonoBehaviour
             // Fade in (open eyes)
             eyeFadeAnim.SetBool("fadeout", false);
         }
+
+        hasBlinked = false;
+    }
+
+    public IEnumerator FadeSequence()
+    {
+        
+        yield return new WaitForSeconds(5);
+        // Fade out (close eyes)
+        eyeFadeAnim.SetBool("fadeout", true);
+        yield return new WaitForSeconds(3.5f);
+
     }
 }
