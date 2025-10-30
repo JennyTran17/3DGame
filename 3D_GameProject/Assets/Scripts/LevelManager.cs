@@ -21,6 +21,8 @@ public class LevelManager : MonoBehaviour
     private Fade eyeFadeEffect;
     public AudioSource elevatorRumbleSFX;
 
+    private bool correct;
+
     private void Awake()
     {
         instance = this;
@@ -58,7 +60,9 @@ public class LevelManager : MonoBehaviour
                     Debug.Log("Correct sequence! Exit unlocked.");
                    
                    
-                    inputSequence.Clear(); // Optionally clear the sequence after success
+                    inputSequence.Clear();
+                    correct = true;
+                    levelCutEnding();
                     return;
                 }
             }
@@ -83,6 +87,8 @@ public class LevelManager : MonoBehaviour
             case 9: index = 9; break;
         }
         Debug.Log("go to floor " + index);
+        //if(correct -> load G floor)
+        //else:
         //SceneManager.LoadScene(index + 1);
     }
 
