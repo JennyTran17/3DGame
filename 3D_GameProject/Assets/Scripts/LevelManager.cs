@@ -21,7 +21,7 @@ public class LevelManager : MonoBehaviour
     private Fade eyeFadeEffect;
     public AudioSource elevatorRumbleSFX;
 
-    private bool correct;
+   // private bool correct;
 
     private void Awake()
     {
@@ -61,7 +61,7 @@ public class LevelManager : MonoBehaviour
                    
                    
                     inputSequence.Clear();
-                    correct = true;
+                   // correct = true;
                     levelCutEnding();
                     return;
                 }
