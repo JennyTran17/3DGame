@@ -109,7 +109,11 @@ public class GameManager : MonoBehaviour
         {
             flashlight.SetActive(true);
             flashlightActivated = true;
-            
+            // Example: when the player picks up flashlight
+            NarratorManager.Instance.TriggerEvent(NarratorState.Flashlight);
+
+
+
             Debug.Log("[GameManager] Flashlight activated after first loop.");
         }
     }

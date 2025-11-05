@@ -2,9 +2,24 @@ using UnityEngine;
 
 public class Attachable : Interactable
 {
+    private bool pickedUp = false;
+
     public override void Interact()
     {
-        // Let PlayerInteract handle the attachment
         Debug.Log("Attachable interacted with");
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (pickedUp) return;
+
+        if (other.CompareTag("Player"))
+        {
+            pickedUp = true;
+            // Call narrator
+            NarratorManager.Instance.TriggerEvent(NarratorState.Flashlight);
+        }
+    }
+
 }
+

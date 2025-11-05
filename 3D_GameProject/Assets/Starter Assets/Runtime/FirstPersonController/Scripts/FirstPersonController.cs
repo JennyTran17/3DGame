@@ -205,7 +205,7 @@ namespace StarterAssets
 				inputDirection = transform.right * _input.move.x + transform.forward * _input.move.y;
                 //if (!walkingAudio.isPlaying)
                 //    walkingAudio.Play();
-                walkingVolumeTarget = 1f; // walking
+                walkingVolumeTarget = 0.2f; // walking
             }
 
             // Smooth volume change (instant sound start, no lag on stop)
