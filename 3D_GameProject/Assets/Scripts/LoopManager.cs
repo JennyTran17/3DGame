@@ -107,7 +107,6 @@ public class LoopManager : MonoBehaviour
 
         AnomalyManager.Instance.ResetAnomalies();
         isReverseMode = false;
-        // TODO: teleport player back into elevator
     }
 
     public void DecrementHallway()

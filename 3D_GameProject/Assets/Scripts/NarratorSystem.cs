@@ -8,19 +8,15 @@ public enum NarratorState
     Casual,
     Flashlight,
     WallText,
-    FirstAnomaly,
     FirstDynamicSound,
     SecondDynamicSound,
     Businessman,
-    Hint,
     Ending
 }
 
-
-
-public class NarratorManager : MonoBehaviour
+public class NarratorSystem : MonoBehaviour
 {
-    public static NarratorManager Instance;
+    public static NarratorSystem Instance;
 
     [Header("UI Reference")]
     public TextMeshProUGUI narratorText;
@@ -32,18 +28,18 @@ public class NarratorManager : MonoBehaviour
     public float eventLineDelay = 3f;
     public float fadeDuration = 0.5f;
 
+    [Header("Event Transition")]
+    public float interruptDelay = 3f; // time to wait before new event overrides
+
     [Header("Event Narration")]
     public List<NarratorEvent> events;
 
-    [Header("Hallway Tracking")]
-    public int endingHallway = 10;
-
     private int casualIndex = 0;
-    private int casualCharIndex = 0;
     private bool isEventPlaying = false;
     private Queue<NarratorEvent> eventQueue = new Queue<NarratorEvent>();
     private Coroutine casualCoroutine;
-    private bool snapNextFade = false;
+    private Coroutine eventCoroutine;
+    private float interruptTimer = 0f;
 
     private void Awake()
     {
@@ -53,12 +49,8 @@ public class NarratorManager : MonoBehaviour
 
     private void Start()
     {
-        if (narratorText == null)
-        {
-            return;
-        }
+        if (narratorText == null) return;
 
-        // Start introduction first
         StartCoroutine(PlayIntro());
         casualCoroutine = StartCoroutine(CasualLoop());
     }
@@ -79,21 +71,10 @@ public class NarratorManager : MonoBehaviour
             if (!isEventPlaying && casualLines.Count > 0)
             {
                 string line = casualLines[casualIndex];
-                int currentIndex = casualCharIndex;
-
-                for (casualCharIndex = currentIndex; casualCharIndex <= line.Length; casualCharIndex++)
-                {
-                    narratorText.text = line.Substring(0, casualCharIndex);
-                    yield return new WaitForSeconds(casualDelay / line.Length);
-
-                    // Pause if event triggers
-                    if (isEventPlaying)
-                        yield return new WaitUntil(() => !isEventPlaying);
-                }
-
-                casualCharIndex = 0;
-                casualIndex = (casualIndex + 1) % casualLines.Count;
+                yield return StartCoroutine(FadeText(line, fadeDuration));
                 yield return new WaitForSeconds(casualDelay);
+
+                casualIndex = (casualIndex + 1) % casualLines.Count;
             }
             else
             {
@@ -109,37 +90,68 @@ public class NarratorManager : MonoBehaviour
         if (nEvent.triggerOnce && nEvent.triggered) return;
 
         nEvent.triggered = true;
-
-        // If casual was active, snap to next event
-        if (!isEventPlaying) snapNextFade = true;
-
         eventQueue.Enqueue(nEvent);
 
-        if (!isEventPlaying)
+        if (isEventPlaying)
         {
-            StartCoroutine(ProcessEventQueue());
+            // Reset the timer when new event arrives
+            interruptTimer = interruptDelay;
+        }
+        else
+        {
+            eventCoroutine = StartCoroutine(ProcessEventQueue());
         }
     }
 
     private IEnumerator ProcessEventQueue()
     {
+        isEventPlaying = true;
+
+        NarratorEvent currentEvent = null;
+        bool interruptRequested = false;
+
         while (eventQueue.Count > 0)
         {
-            NarratorEvent nEvent = eventQueue.Dequeue();
-            isEventPlaying = true;
+            currentEvent = eventQueue.Dequeue();
 
-            foreach (string line in nEvent.lines)
+            // Countdown interrupt delay before next event can override
+            interruptRequested = false;
+            interruptTimer = 0f;
+
+            foreach (string line in currentEvent.lines)
             {
-                // Snap only if flagged (Casual -> Event)
-                bool snap = snapNextFade;
-                snapNextFade = false;
+                yield return StartCoroutine(FadeText(line, fadeDuration));
+                float timer = 0f;
 
-                yield return StartCoroutine(FadeText(line, fadeDuration, snap));
-                yield return new WaitForSeconds(eventLineDelay);
+                // Wait for eventLineDelay or until interrupted
+                while (timer < eventLineDelay)
+                {
+                    if (eventQueue.Count > 0)
+                    {
+                        interruptTimer += Time.deltaTime;
+                        if (interruptTimer >= interruptDelay)
+                        {
+                            interruptRequested = true;
+                            break;
+                        }
+                    }
+
+                    timer += Time.deltaTime;
+                    yield return null;
+                }
+
+                if (interruptRequested) break;
             }
 
-            isEventPlaying = false;
+            if (interruptRequested)
+            {
+                // Immediately fade out before switching to next event
+                yield return StartCoroutine(FadeText("", fadeDuration));
+                continue; // process next event right away
+            }
         }
+
+        isEventPlaying = false;
     }
 
     private IEnumerator FadeText(string line, float duration, bool snap = false)
@@ -151,7 +163,7 @@ public class NarratorManager : MonoBehaviour
             yield break;
         }
 
-        // Fade out current text
+        // Fade out
         if (!string.IsNullOrEmpty(narratorText.text))
         {
             float t = 0f;
@@ -166,7 +178,7 @@ public class NarratorManager : MonoBehaviour
 
         narratorText.text = line;
 
-        // Fade in new text
+        // Fade in
         float tIn = 0f;
         Color cIn = narratorText.color;
         while (tIn < duration)
@@ -178,13 +190,7 @@ public class NarratorManager : MonoBehaviour
         narratorText.color = new Color(cIn.r, cIn.g, cIn.b, 1f);
     }
 
-    public void CheckHallwayProgress(int hallway)
-    {
-        if (hallway == endingHallway)
-        {
-            TriggerEvent(NarratorState.Ending);
-        }
-    }
+    
 }
 
 [System.Serializable]

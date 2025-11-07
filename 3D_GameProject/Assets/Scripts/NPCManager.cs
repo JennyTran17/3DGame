@@ -20,6 +20,7 @@ public class NPCManager : MonoBehaviour
     private bool lastSpawnWasA = false;
     private bool isSpawning = false;
     private int lastKnownHallway = -1;
+    bool firstTime;
 
     private void Start()
     {
@@ -109,6 +110,12 @@ public class NPCManager : MonoBehaviour
         }
 
         man.SetActive(true);
+        if (!firstTime)
+        {
+            NarratorSystem.Instance.TriggerEvent(NarratorState.Businessman);
+            firstTime = true;
+
+        }
         StartCoroutine(WatchAndDeactivate(man, movement));
     }
 

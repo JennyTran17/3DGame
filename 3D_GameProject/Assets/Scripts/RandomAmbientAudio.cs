@@ -36,6 +36,7 @@ public class RandomAmbientAudio : MonoBehaviour
     private Coroutine soundRoutine;
     private int currentClipIndex = 0;
     GameObject player;
+    int num = 0;
 
     void Awake()
     {
@@ -86,11 +87,18 @@ public class RandomAmbientAudio : MonoBehaviour
             // Play the sound
             audioSource.clip = selectedClip;
             audioSource.Play();
+
+            switch (num)
+            {
+                case 0: NarratorSystem.Instance.TriggerEvent(NarratorState.FirstDynamicSound); break;
+                case 1: NarratorSystem.Instance.TriggerEvent(NarratorState.SecondDynamicSound); break;
+            }
             
 
 
             yield return new WaitForSeconds(15);
             audioSource.Stop();
+            num = 1;
         }
     }
 

@@ -34,7 +34,7 @@ public class AnomalyManager : MonoBehaviour
     {
         List<int> allPossibleHallways = new List<int>();
 
-        // Populate from 1 to totalHallways
+        // Populate from 2 to totalHallways
         for (int i = 2; i < totalHallways; i++)
         {
             allPossibleHallways.Add(i);
@@ -80,6 +80,9 @@ public class AnomalyManager : MonoBehaviour
 
 
                     lastUsedSpawnIndex = reverseMode ? 1 : 0;
+
+                    
+                    
                 }
                 else
                 {

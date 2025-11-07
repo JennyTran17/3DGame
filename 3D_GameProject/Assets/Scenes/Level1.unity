@@ -12856,7 +12856,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12883,8 +12883,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -32314,26 +32314,49 @@ MonoBehaviour:
   - "You\u2019ve come back again. I wasn\u2019t sure you would"
   - "There\u2019s not much to see here. Just hallways\u2026 and echoes of decisions
     you didn\u2019t make."
+  - You walked forward. You could have gone back. You did not.
   - "Walk. That\u2019s all you ever do. But maybe this time, you\u2019ll notice what\u2019s
     different."
-  - "The doors don\u2019t open anymore. Not after what happened last time."
   - "Don\u2019t worry. I\u2019ll be with you the whole way. I always am."
   casualLines:
+  - The walls were too clean, too perfect. You still kept walking.
   - "You like the quiet, don\u2019t you? The safety in repetition."
+  - You did not know what was beneath the floor, or behind the ceiling, or inside
+    the walls.
+  - "Someone\u2014or something\u2014had been here before. You could feel it. Not
+    in your mind. Not yet."
   - Every step sounds the same. Perfect. Predictable. Controlled
-  - "You\u2019re not lost. You\u2019re just refusing to stop."
   - I used to count how many times you turned left. I stopped after a hundred
-  - "You keep pretending this place is empty, but it\u2019s not. You left parts of
-    yourself in every hallway."
+  - You reached another hallway. It was identical to the last. And the one before
+    that.
+  - You wondered, for a moment, if you had been walking forever.
+  - You were right, you told yourself. You always were.
   - "Sometimes, I hear you humming. You don\u2019t even realize it."
-  - "It\u2019s getting colder here. Or maybe that\u2019s just you"
-  - "Everything\u2019s back to normal. Whatever that means"
+  - What you did not know was that the hallway had a memory. And it remembered everything
+    you had forgotten.
+  - You kept walking and walking but the hallway kept you.
+  - You paused. And then moved. The decision was yours, wasn't it?
+  - "It\u2019s getting colder now. Do you feel it?"
+  - "The sound you hear isn\u2019t the vent... it\u2019s breathing. Slow. Familiar."
   - "Pretend it didn\u2019t happen. You\u2019re good at that."
   - "It\u2019s quieter now. Just the two of us again."
   - "Keep walking. You\u2019ll forget soon enough"
-  casualDelay: 4
-  eventLineDelay: 3
-  fadeDuration: 0.5
+  - Have you ever wonder why there is this annoying narrator?
+  - Well, let me tell you... I am actually inside your head
+  - You created me and all I did was narrating.
+  - Something shifted behind the walls.
+  - "You were certain this hallway ended at a door. It doesn\u2019t anymore."
+  - "The last person who made it this far didn\u2019t come back the same."
+  - Something wrote your name on the patient chart. The ink is still wet.
+  - Something wrote your name on the patient chart. The ink is still wet.
+  - "The vents are whispering again. Don\u2019t listen too long."
+  - "You told yourself it wasn\u2019t your fault. Over and over."
+  - "You told yourself it wasn\u2019t your fault. Over and over."
+  - The floor tiles count your steps. You always stop at the same number.
+  casualDelay: 5
+  eventLineDelay: 5
+  fadeDuration: 1.5
+  interruptDelay: 3
   events:
   - state: 2
     lines:
@@ -32406,7 +32429,6 @@ MonoBehaviour:
     - "It\u2019s behind you"
     triggerOnce: 1
     triggered: 0
-  endingHallway: 10
 --- !u!4 &1713042509 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}

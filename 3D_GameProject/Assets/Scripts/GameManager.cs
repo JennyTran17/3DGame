@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     private bool elevatorActive = true;
     public Queue<GameObject> hintQueue = new Queue<GameObject>();
     private GameObject previousHint;
+    bool firstTime;
 
     private void Awake()
     {
@@ -98,7 +99,8 @@ public class GameManager : MonoBehaviour
         if (hallway == 10)
         {
             ActivateElevatorBasedOnDirection();
-            LevelManager.instance.currentLevel += 1;
+            NarratorSystem.Instance.TriggerEvent(NarratorState.Ending);
+
             Debug.Log($"Reached hallway 10.");
         }
     }
@@ -109,11 +111,7 @@ public class GameManager : MonoBehaviour
         {
             flashlight.SetActive(true);
             flashlightActivated = true;
-            // Example: when the player picks up flashlight
-            NarratorManager.Instance.TriggerEvent(NarratorState.Flashlight);
-
-
-
+            
             Debug.Log("[GameManager] Flashlight activated after first loop.");
         }
     }
@@ -215,6 +213,10 @@ public class GameManager : MonoBehaviour
             hintToActivate.SetActive(true);
             Debug.Log($"[GameManager] Activated hint '{hintToActivate.name}' at hallway {hallway}.");
             previousHint = hintToActivate;
+            if(!firstTime)
+            {
+                firstTime = true;
+            }
         }
     }
 

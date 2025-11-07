@@ -11,7 +11,7 @@ public class WallTextTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             triggered = true;
-            NarratorManager.Instance.TriggerEvent(NarratorState.WallText);
+            NarratorSystem.Instance.TriggerEvent(NarratorState.WallText);
         }
     }
 }

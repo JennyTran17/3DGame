@@ -17,7 +17,7 @@ public class Attachable : Interactable
         {
             pickedUp = true;
             // Call narrator
-            NarratorManager.Instance.TriggerEvent(NarratorState.Flashlight);
+            NarratorSystem.Instance.TriggerEvent(NarratorState.Flashlight);
         }
     }
 
