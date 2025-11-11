@@ -51,7 +51,7 @@ public class NarratorSystem : MonoBehaviour
     {
         if (narratorText == null) return;
 
-        StartCoroutine(PlayIntro());
+        //StartCoroutine(PlayIntro());
         casualCoroutine = StartCoroutine(CasualLoop());
     }
 

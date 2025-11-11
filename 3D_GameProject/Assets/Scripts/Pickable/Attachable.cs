@@ -16,8 +16,7 @@ public class Attachable : Interactable
         if (other.CompareTag("Player"))
         {
             pickedUp = true;
-            // Call narrator
-            NarratorSystem.Instance.TriggerEvent(NarratorState.Flashlight);
+           
         }
     }
 

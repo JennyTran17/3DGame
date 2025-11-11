@@ -79,6 +79,7 @@ public class PlayerInteract : MonoBehaviour
         if (interactable.gameObject.GetComponent<Attachable>())
         {
             Attachable attachable = interactable.gameObject.GetComponent<Attachable>();
+            
             AttachItem(attachable);
         }
         else if (interactable.gameObject.GetComponent<Pickable>())

@@ -248,6 +248,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 578126577}
     m_Modifications:
+    - target: {fileID: 48384782798838945, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 145566498837776492, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 353508828455441724, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 594411390434184711, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 692917292428148127, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 910853837620982899, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094782272411747539, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167404222193505975, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1223000065603841953, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -304,9 +336,197 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1523249173901597985, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714347721558369567, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1995983834556462363, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
       propertyPath: m_Name
       value: clock
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995983834556462363, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846859349648614104, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2978994623730686805, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3050399858887559160, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3307322289261159311, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3846967858079354310, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101925899638786880, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4102260938300587523, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4358005704918628675, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416137349369444077, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4762342618307360190, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4771953084066493896, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5099396569596182232, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5265901348982659779, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295275641993744136, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5550456969568061792, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5585915850017859299, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612103047172859844, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424180122467106715, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6941250581433193524, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057705957468863842, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096958333441742253, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7103414957287150053, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7198419789625473548, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7211099569445334634, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226915905252121757, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340109707340365316, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7470597493368229004, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740282328348089738, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746892849262397037, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884258496182952265, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884258496182952265, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884258496182952265, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884258496182952265, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.00092497823
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884258496182952265, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.000924816
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884258496182952265, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70722955
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884258496182952265, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.70698285
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884258496182952265, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 89.851
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884258496182952265, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 97.596
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884258496182952265, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -82.404
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919840861538237477, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8374996636538375592, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8476978717662828491, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8952878305710588340, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9128333483963089870, guid: df32aeba5ad2e0c4e96b10992901ea0d, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3480,6 +3700,12 @@ MonoBehaviour:
   - It can see you
   - Stop going forward
   - You never learn, do you?
+  - '11     1                1
+
+    1  11     111      1
+
+    1      1111111                  
+    1        1'
   - Keep walking. See where that gets you.
   - You are in a dream
   - Someone was killed here
@@ -4334,6 +4560,10 @@ PrefabInstance:
     - target: {fileID: 5807933591859702591, guid: 35b2f14f12b7f1c499e0b5fa4dae8775, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5807933591859702591, guid: 35b2f14f12b7f1c499e0b5fa4dae8775, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6616417292537000325, guid: 35b2f14f12b7f1c499e0b5fa4dae8775, type: 3}
       propertyPath: m_LocalScale.x
@@ -9393,8 +9623,8 @@ MonoBehaviour:
   - {fileID: 9077172672463770442, guid: 7c211144e9cb19f47abd5a1ffdcc6d15, type: 3}
   - {fileID: 2486322885917768577, guid: 2391833bf926c6e4eaac4c8fa9accdd9, type: 3}
   - {fileID: 5081970150526744725, guid: e98dc9f8bae17f94cad6624dd5d98b20, type: 3}
-  - {fileID: 2888943054876110533, guid: a352f11499a668d4c878f4c5bd914b7c, type: 3}
   - {fileID: 2231736758869525802, guid: c101b90df5e241840803611bb2ab1d8b, type: 3}
+  - {fileID: 2486322885917768577, guid: ef9f7dc8e78e01240b5ceb907ef7cf9f, type: 3}
   anomalySpawns:
   - {fileID: 490320528}
   - {fileID: 232271132}
@@ -12683,17 +12913,17 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4e784fcc454cb74419c9d6716a1ec05d, type: 3}
   - {fileID: 8300000, guid: 2ac2d66895d88c141896bc036c062710, type: 3}
   - {fileID: 8300000, guid: 3c5d4b50ce29bf24d9927af1e1908a34, type: 3}
+  - {fileID: 8300000, guid: 1014172abc5eced48b3c85a56ee8ebdc, type: 3}
   - {fileID: 8300000, guid: 21729383bff4af64082e9946aaed1aba, type: 3}
   - {fileID: 8300000, guid: 417c3c897d9da76458b8d9a9013dbe18, type: 3}
   - {fileID: 8300000, guid: 646d25583a9110149aea872357666a72, type: 3}
-  - {fileID: 8300000, guid: 1014172abc5eced48b3c85a56ee8ebdc, type: 3}
-  timeBetweenSounds: {x: 40, y: 100}
+  timeBetweenSounds: {x: 40, y: 60}
   pitchRange: {x: 0.9, y: 1.1}
-  volumeRange: {x: 0.3, y: 0.5}
+  volumeRange: {x: 0.3, y: 0.8}
   dopplerRange: {x: 0, y: 4}
   spatialBlend: 1
   stereoPan: 0
-  maxDistance: 30
+  maxDistance: 15
 --- !u!1 &1473995227
 GameObject:
   m_ObjectHideFlags: 0
@@ -32310,21 +32540,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   narratorText: {fileID: 1476099652}
-  introLines:
+  introLines: []
+  casualLines:
   - "You\u2019ve come back again. I wasn\u2019t sure you would"
   - "There\u2019s not much to see here. Just hallways\u2026 and echoes of decisions
     you didn\u2019t make."
   - You walked forward. You could have gone back. You did not.
+  - The walls were too clean, too perfect. You still kept walking.
   - "Walk. That\u2019s all you ever do. But maybe this time, you\u2019ll notice what\u2019s
     different."
   - "Don\u2019t worry. I\u2019ll be with you the whole way. I always am."
-  casualLines:
-  - The walls were too clean, too perfect. You still kept walking.
   - "You like the quiet, don\u2019t you? The safety in repetition."
   - You did not know what was beneath the floor, or behind the ceiling, or inside
     the walls.
-  - "Someone\u2014or something\u2014had been here before. You could feel it. Not
-    in your mind. Not yet."
+  - Someone-or something-had been here before. You could feel it. Not in your mind.
+    Not yet.
   - Every step sounds the same. Perfect. Predictable. Controlled
   - I used to count how many times you turned left. I stopped after a hundred
   - You reached another hallway. It was identical to the last. And the one before
@@ -32354,9 +32584,9 @@ MonoBehaviour:
   - "You told yourself it wasn\u2019t your fault. Over and over."
   - The floor tiles count your steps. You always stop at the same number.
   casualDelay: 5
-  eventLineDelay: 5
-  fadeDuration: 1.5
-  interruptDelay: 3
+  eventLineDelay: 3
+  fadeDuration: 1
+  interruptDelay: 1
   events:
   - state: 2
     lines:
@@ -32374,21 +32604,11 @@ MonoBehaviour:
     triggered: 0
   - state: 3
     lines:
-    - As you walk, you will take a turn on the left.
-    - Oh no you found it
-    - It likes to follow you for a while before
-    - "Don\u2019t make eye contact. Not again"
-    - You will then walk forward and overcome your fear, right?
-    - Or maybe you won't. Who knows if it will kill you?
-    triggerOnce: 1
-    triggered: 0
-  - state: 4
-    lines:
     - Hold on... Did you hear that?
     - The walls are thinner now. The sounds leak through
     triggerOnce: 1
     triggered: 0
-  - state: 5
+  - state: 4
     lines:
     - You heard it again, didn't you?
     - It's getting closer. The sound. The memory.
@@ -32400,7 +32620,7 @@ MonoBehaviour:
     - But then you are trapped. No exit, no escape.
     triggerOnce: 1
     triggered: 0
-  - state: 6
+  - state: 5
     lines:
     - Oh, him again. Still walking. Still pretending
     - "He thinks this corridor leads home. He\u2019s wrong, but I let him dream."
@@ -32409,18 +32629,9 @@ MonoBehaviour:
     - "When he passes you, don\u2019t breathe. It confuses him."
     triggerOnce: 1
     triggered: 0
-  - state: 7
-    lines:
-    - "That caught your attention, didn\u2019t it?"
-    - "You keep chasing these little truths as if they\u2019ll fix something."
-    - "I could tell you what it does. But where\u2019s the fun in that?"
-    - "You always reach for things you don\u2019t understand"
-    triggerOnce: 1
-    triggered: 0
-  - state: 8
+  - state: 6
     lines:
     - Good, you are learning. Maybe next time you won't struggle so much
-    - Hallway ten. You made it.
     - "Did you really think there\u2019d be an ending?"
     - "You\u2019ve done this before. I\u2019ve said these words before."
     - "Maybe this time you\u2019ll listen."

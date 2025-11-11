@@ -111,7 +111,8 @@ public class GameManager : MonoBehaviour
         {
             flashlight.SetActive(true);
             flashlightActivated = true;
-            
+            // Call narrator
+            NarratorSystem.Instance.TriggerEvent(NarratorState.Flashlight);
             Debug.Log("[GameManager] Flashlight activated after first loop.");
         }
     }

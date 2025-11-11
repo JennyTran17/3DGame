@@ -107,6 +107,7 @@ public class SceneDistortionManager : MonoBehaviour
             }
 
             chosen.SetActive(true);
+           
         }
 
         // 5. Hold blackout for a while
@@ -116,6 +117,7 @@ public class SceneDistortionManager : MonoBehaviour
         if (useBlackout && blackoutCanvas != null)
         {
             Blackout(0f);
+            chosen.GetComponent<AudioSource>().enabled = true;
             yield return new WaitForSeconds(1.5f);
             Blackout(1f);
             
