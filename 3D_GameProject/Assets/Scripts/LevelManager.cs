@@ -21,7 +21,7 @@ public class LevelManager : MonoBehaviour
     private Fade eyeFadeEffect;
     public AudioSource elevatorRumbleSFX;
 
-   // private bool correct;
+    private bool correct;
 
     private void Awake()
     {
@@ -59,10 +59,11 @@ public class LevelManager : MonoBehaviour
                 {
                     Debug.Log("Correct sequence! Exit unlocked.");
                    
-                   
+                    NarratorSystem.Instance.TriggerEvent(NarratorState.CorrectSequence);
                     inputSequence.Clear();
-                   // correct = true;
+                    correct = true;
                     levelCutEnding();
+                    StartCoroutine(loadFloor("GFloor"));
                     return;
                 }
             }
@@ -72,6 +73,7 @@ public class LevelManager : MonoBehaviour
     public void changeScene()
     {
         //sequence of exit level 1: turn off keypad, elevator rumbled, eyes closed.
+        NarratorSystem.Instance.TriggerEvent(NarratorState.OtherFloor);
         levelCutEnding();
         int index = 0;
         switch (currentLevel)
@@ -87,9 +89,9 @@ public class LevelManager : MonoBehaviour
             case 9: index = 9; break;
         }
         Debug.Log("go to floor " + index);
-        //if(correct -> load G floor)
-        //else:
-        //SceneManager.LoadScene(index + 1);
+        //only 2 levels can be gone to, the rest will trigger narratorsystem
+
+       // StartCoroutine(loadFloor("Level" + currentLevel));
     }
 
     public void levelCutEnding()
@@ -110,5 +112,16 @@ public class LevelManager : MonoBehaviour
         //play sound
         elevatorRumbleSFX.Play();
         yield return new WaitForSeconds(2.5f);
+    }
+
+    IEnumerator loadFloor(string level)
+    {
+        yield return new WaitForSeconds(12.5f);
+        //if(correct -> load G floor)
+        if (correct)
+        {
+            SceneManager.LoadScene(level);
+        }
+        
     }
 }

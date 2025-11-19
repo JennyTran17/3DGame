@@ -11,7 +11,9 @@ public enum NarratorState
     FirstDynamicSound,
     SecondDynamicSound,
     Businessman,
-    Ending
+    Ending,
+    OtherFloor,
+    CorrectSequence
 }
 
 public class NarratorSystem : MonoBehaviour
