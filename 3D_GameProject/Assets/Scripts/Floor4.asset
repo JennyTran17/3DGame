@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc730475ed18dc949b8c9fd8435ab43e, type: 3}
+  m_Name: Floor4
+  m_EditorClassIdentifier: 
+  introLines: []
+  casualLines:
+  - ..
+  - ..
+  - Hm~
+  - ~
+  - Lala... lala
+  - Hm Hm~
+  - '... '
+  - Oh there you are.
+  - I have been waiting for you to come back.
+  - What takes you so long?
+  - Have you ever wondered... if you are actually not alive?
+  - .
+  - .
+  - .
+  - .
+  - I mean, take a look at yourself.
+  - You have no hand and feet.
+  - Are you a ghost?
+  - Maybe, maybe not
+  - Your soul might have gone from your body itself
+  - Then you asked, where is my body?
+  - In the hospital, right now
+  - You are not dead, yet not alive either.
+  - But why?
+  - A bus, the scream, shattered glass and blood
+  - See these strange things? They were on that bus
+  - .
+  - .
+  - And you are the driver.
+  - .
+  - .
+  - .
+  - You won't be able to escape.
+  - 'Not ever. '
+  - .
+  - .
+  - Because you are responsible for your current situation
+  - Trapped forever.
+  - HAHAHAHHAHAH
+  - HAHAHAH
+  - HEHEHEHEHHEHHHEHE
+  - fsgkfsdkfwoghdghkshfskfhsuhflshf
+  - .
+  - .
+  - 
+  eventPresets:
+  - state: 2
+    lines:
+    - You saw it before, what do you think it means?
+    - I didn't write it, I told you.
+    triggerOnce: 1
+    triggered: 0
+  - state: 1
+    lines:
+    - In a few seconds, you will pick up the flashlight again
+    triggerOnce: 1
+    triggered: 0
+  - state: 3
+    lines:
+    - 'The sound... its telling you something. '
+    - Shhh.... something is approaching
+    triggerOnce: 1
+    triggered: 0
+  - state: 4
+    lines:
+    - You heard it again, right?
+    - IT SAID TO GET OUT OF HERE
+    triggerOnce: 1
+    triggered: 0
+  - state: 5
+    lines:
+    - Oh him again, walking in his dreams
+    - He has been here longer than you, trying to find the exit
+    - Don't breath near him, it will wake him up
+    triggerOnce: 1
+    triggered: 0
+  - state: 6
+    lines:
+    - You found the elevator again.
+    - Maybe this time, you should stay inside and wait instead
+    - Stay where the light is
+    triggerOnce: 1
+    triggered: 0
+  - state: 7
+    lines:
+    - Wait... where are you going?
+    - We might restart again.
+    - No.... Don't!
+    triggerOnce: 1
+    triggered: 0
+  - state: 8
+    lines:
+    - What?! You figured it out?
+    - But did you know the truth?
+    - 'I warn you: there is no escape.'
+    - Because there is no reality
+    triggerOnce: 1
+    triggered: 0

@@ -12,7 +12,7 @@ public class ButtonClick : MonoBehaviour
         if (number != 0)
         {
             LevelManager.instance.AddInput(number);
-            LevelManager.instance.currentLevel = number;
+            LevelManager.instance.chosenLevel = number;
         }
     }
 }

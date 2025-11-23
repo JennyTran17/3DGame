@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc730475ed18dc949b8c9fd8435ab43e, type: 3}
+  m_Name: Floor5
+  m_EditorClassIdentifier: 
+  introLines: []
+  casualLines:
+  - ..
+  - ..
+  - Hm~
+  - ~
+  - Lala... lala
+  - Hm Hm~
+  - '... '
+  - Oh there you are.
+  - I have been waiting for you to come back.
+  - What takes you so long?
+  - Let me help you get out.
+  - 'Keeps walking and walking and walking '
+  - And never go back
+  - Do what you always have done.
+  - You know it by heart. And they know it too.
+  - So they are waiting at the end.
+  - You reached another hallway. It was identical to the last. And the one before
+    that.
+  - Should you go back? But the elevator is not there anymore!
+  - You kept walking and walking but the hallway kept you.
+  - You paused. And then moved. The decision was yours, wasn't it?
+  - You did not know what was beneath the floor, or behind the ceiling, or inside
+    the walls.
+  - Every step sounds the same. Perfect. Predictable. Controlled
+  - "Don\u2019t worry. I\u2019ll be with you the whole way. I always am."
+  - Something shifted behind the walls.
+  - "You were certain this hallway ended at a door. It doesn\u2019t anymore."
+  - "The vents are whispering again. Don\u2019t listen too long."
+  - But have you ever wondered why you are trapped here?
+  - We never know... we never know.....
+  - I know a truth. A truth that you buried
+  - 'But... '
+  - I don't think it is the right time yet.
+  - This truth can either help you escape or trap you here forever.
+  eventPresets:
+  - state: 2
+    lines:
+    - You saw it before, what do you think it means?
+    - I didn't write it, I told you.
+    triggerOnce: 1
+    triggered: 0
+  - state: 1
+    lines:
+    - In a few seconds, you will pick up the flashlight again
+    triggerOnce: 1
+    triggered: 0
+  - state: 3
+    lines:
+    - 'The sound... its telling you something. '
+    - Shhh.... something is approaching
+    triggerOnce: 1
+    triggered: 0
+  - state: 4
+    lines:
+    - You heard it again, right?
+    - IT SAID TO GET OUT OF HERE
+    triggerOnce: 1
+    triggered: 0
+  - state: 5
+    lines:
+    - Oh him again, walking in his dreams
+    - He has been here longer than you, trying to find the exit
+    - Don't breath near him, it will wake him up
+    triggerOnce: 1
+    triggered: 0
+  - state: 6
+    lines:
+    - You found the elevator again.
+    - Maybe this time, you should stay inside and wait instead
+    - Stay where the light is
+    triggerOnce: 1
+    triggered: 0
+  - state: 7
+    lines:
+    - Wait... where are you going?
+    - We might restart again.
+    - No.... Don't!
+    triggerOnce: 1
+    triggered: 0
+  - state: 8
+    lines:
+    - What?! You figured it out?
+    - But did you know the truth?
+    - 'I warn you: there is no escape.'
+    - Because there is no reality
+    triggerOnce: 1
+    triggered: 0

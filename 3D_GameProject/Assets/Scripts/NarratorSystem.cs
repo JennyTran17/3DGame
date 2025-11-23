@@ -19,6 +19,9 @@ public enum NarratorState
 public class NarratorSystem : MonoBehaviour
 {
     public static NarratorSystem Instance;
+    [Header("Floor Profile")]
+    public NarrationProfile profile;
+
 
     [Header("UI Reference")]
     public TextMeshProUGUI narratorText;
@@ -51,9 +54,30 @@ public class NarratorSystem : MonoBehaviour
 
     private void Start()
     {
+        profile = FloorManager.Instance.GetCurrentProfile();
+
+        if (profile != null)
+        {
+            introLines = new List<string>(profile.introLines);
+            casualLines = new List<string>(profile.casualLines);
+
+            // Replace all event dialogue presets
+            events = new List<NarratorEvent>();
+            foreach (var p in profile.eventPresets)
+            {
+                // Clone events so the "triggered" flag does not modify original profile
+                NarratorEvent clone = new NarratorEvent
+                {
+                    state = p.state,
+                    lines = new List<string>(p.lines),
+                    triggerOnce = p.triggerOnce
+                };
+                events.Add(clone);
+            }
+        }
+
         if (narratorText == null) return;
 
-        //StartCoroutine(PlayIntro());
         casualCoroutine = StartCoroutine(CasualLoop());
     }
 

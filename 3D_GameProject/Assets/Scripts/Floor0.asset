@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc730475ed18dc949b8c9fd8435ab43e, type: 3}
+  m_Name: Floor0
+  m_EditorClassIdentifier: 
+  introLines: []
+  casualLines:
+  - You have reached ground floor.
+  - Are you sure you want to leave?
+  - See I told you, there is nothing going on.
+  - You should have listened to me and stayed.
+  - Do you think you really escape?
+  - How about we go forward and explore?
+  - I'm telling, you are still trapped
+  - Or maybe you are already dead
+  eventPresets:
+  - state: 6
+    lines:
+    - Guess what...
+    - You are going back
+    triggerOnce: 1
+    triggered: 0

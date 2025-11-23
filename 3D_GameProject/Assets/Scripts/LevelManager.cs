@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
-    public int currentLevel = 1;
+    public int chosenLevel = 1;
     private int[] levelSequence = new int[]
     {
         6, 1, 3
@@ -76,7 +76,7 @@ public class LevelManager : MonoBehaviour
         NarratorSystem.Instance.TriggerEvent(NarratorState.OtherFloor);
         levelCutEnding();
         int index = 0;
-        switch (currentLevel)
+        switch (chosenLevel)
         {
             case 1: index = 1; break;
             case 2: index = 2; break;
@@ -90,8 +90,24 @@ public class LevelManager : MonoBehaviour
         }
         Debug.Log("go to floor " + index);
         //only 2 levels can be gone to, the rest will trigger narratorsystem
+        FloorManager.Instance.currentFloorDialogue = chosenLevel;
 
-       // StartCoroutine(loadFloor("Level" + currentLevel));
+        if (chosenLevel == 1)
+        {
+            StartCoroutine(loadFloor("Level" + chosenLevel));
+        }
+        else if (chosenLevel == 2 || chosenLevel == 4 || chosenLevel == 6 || chosenLevel == 8)
+        {
+            StartCoroutine(loadFloor("Level" + 2));
+        }
+        else if( chosenLevel == 3 || chosenLevel == 5 || chosenLevel == 7 || chosenLevel == 9)
+        {
+            StartCoroutine(loadFloor("Level" + 3));
+        }
+        else
+        {
+            StartCoroutine(loadFloor("Level" + 1));
+        }
     }
 
     public void levelCutEnding()
@@ -116,12 +132,27 @@ public class LevelManager : MonoBehaviour
 
     IEnumerator loadFloor(string level)
     {
+        
         yield return new WaitForSeconds(12.5f);
         //if(correct -> load G floor)
         if (correct)
         {
+            chosenLevel = 0;
+            FloorManager.Instance.currentFloorDialogue = chosenLevel;
             SceneManager.LoadScene(level);
         }
-        
+        else // load other floor
+        {
+            SceneManager.LoadScene(level);
+        }
     }
+
+    //IEnumerator loadFloor(string level)
+    //{
+    //    yield return new WaitForSeconds(12.5f);
+       
+        
+
+
+    //}
 }

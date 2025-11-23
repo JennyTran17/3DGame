@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc730475ed18dc949b8c9fd8435ab43e, type: 3}
+  m_Name: Floor3
+  m_EditorClassIdentifier: 
+  introLines: []
+  casualLines:
+  - I told you.... Now here we go again...
+  - You see, you can never escape this unless you listen to me
+  - But I know you too well, you will not.
+  - Should I continue the story from last time.
+  - Maybe then you will realise why you are here in the first place.
+  - '"Something had happened, something A had forgotten. But the figures were patient.
+    They did not attack. They only waited for recognition.'
+  - "A began noticing changes each visit. Marks scratched into the walls, faint symbols
+    drawn in the dust, the soft vibration of a melody no one else could hear. Every
+    detail tugged at something buried in A\u2019s mind."
+  - "They remembered suddenly, in flashes: a scream, a hand reaching, the wrong turn,
+    a life they couldn\u2019t undo"
+  - The hallway itself seemed to twist with the weight of what had happened.
+  - 'A whispered the numbers scrawled in the dust, scratched into the walls: the
+    sequence of that night'
+  - "Slowly, painfully, the fragments of memory aligned. The truth, horrific and
+    inescapable, settled in A\u2019s chest like stone."
+  - "\u201CYou remember now,\u201D the silence seemed to whisper. \u201CYou cannot
+    escape.\u201D"
+  - A understood. The hallway, the figures, the endless repetition. They were not
+    punishment. They were witnesses. Reminders. Guides.
+  - The elevator opened again. The hallway stretched endlessly before A, dim and
+    humming, the same sickly yellow lights flickering above. The figures were there,
+    waiting.
+  - "But A turned. Every time. They couldn\u2019t face it. They walked past the anomalies,
+    through the same hallway, down the same endless loop. The numbers, the marks,
+    the scratches, they all tried to reach them, to force acknowledgment."
+  - "A\u2019s mind blurred, fragments of memory scratching at the edges. But they
+    ignored it. They always ignored it."
+  - The light never came. The elevator doors never truly opened. The sequence, the
+    truth, hovered just beyond reach.
+  - A would never stop. A would never confront them.
+  - And so the hallway went on, endless, flickering, cold. The dead waited. The anomalies
+    waited. And A walked, forever, avoiding the only thing that could set them free.
+  - ..
+  - ..
+  - ..
+  - ..
+  - ..
+  - ..
+  - ..
+  - .
+  - .
+  - .
+  - .
+  - .
+  - .
+  - .
+  - .
+  - .
+  - .
+  - .
+  - .
+  - .
+  - .
+  - .
+  - .
+  - .
+  - .
+  eventPresets:
+  - state: 2
+    lines:
+    - You saw it before, what do you think it means?
+    - I didn't write it, I told you.
+    triggerOnce: 1
+    triggered: 0
+  - state: 1
+    lines:
+    - In a few seconds, you will pick up the flashlight again
+    triggerOnce: 1
+    triggered: 0
+  - state: 3
+    lines:
+    - 'The sound... its telling you something. '
+    - Shhh.... something is approaching
+    triggerOnce: 1
+    triggered: 0
+  - state: 4
+    lines:
+    - You heard it again, right?
+    - IT SAID TO GET OUT OF HERE
+    triggerOnce: 1
+    triggered: 0
+  - state: 5
+    lines:
+    - Oh him again, walking in his dreams
+    - He has been here longer than you, trying to find the exit
+    - Don't breath near him, it will wake him up
+    triggerOnce: 1
+    triggered: 0
+  - state: 6
+    lines:
+    - You found the elevator again.
+    - Maybe this time, you should stay inside and wait instead
+    - Stay where the light is
+    triggerOnce: 1
+    triggered: 0
+  - state: 7
+    lines:
+    - Wait... where are you going?
+    - We might restart again.
+    - No.... Don't!
+    triggerOnce: 1
+    triggered: 0
+  - state: 8
+    lines:
+    - What?! You figured it out?
+    - But did you know the truth?
+    - 'I warn you: there is no escape.'
+    - Because there is no reality
+    triggerOnce: 1
+    triggered: 0

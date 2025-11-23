@@ -3289,6 +3289,58 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 213160344}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &215007483
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 215007484}
+  - component: {fileID: 215007485}
+  m_Layer: 0
+  m_Name: FloorManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &215007484
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215007483}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &215007485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215007483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03c553b4896439a4dbd90142a566799d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profiles:
+  - {fileID: 11400000, guid: 21c0af69202286e40bc6710883552cb2, type: 2}
+  - {fileID: 11400000, guid: 4654a93cd788ff049854f60edfeb932e, type: 2}
+  - {fileID: 11400000, guid: de1a6d23e8f8aad4daaf4d16ea398098, type: 2}
+  - {fileID: 11400000, guid: 43ead18bf6306414e8e9a03ddd55f226, type: 2}
+  - {fileID: 11400000, guid: 54ad4c4700a84e24cbec86458aeb93a5, type: 2}
+  - {fileID: 11400000, guid: ea990ebfa63d63041aecdc542586ef66, type: 2}
+  currentFloorDialogue: 1
 --- !u!1 &217236582
 GameObject:
   m_ObjectHideFlags: 0
@@ -11306,7 +11358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dfd42d0c3d4f6c4e81f9251442916a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 1
+  chosenLevel: 1
   inputSequence: 
   keypad: {fileID: 887812104}
   elevatorRumbleSFX: {fileID: 1662924100}
@@ -33815,50 +33867,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b5aa93a2b5f6f94ba9557299ef1ac83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  profile: {fileID: 0}
   narratorText: {fileID: 1476099652}
   introLines: []
-  casualLines:
-  - "You\u2019ve come back again. I wasn\u2019t sure you would"
-  - "There\u2019s not much to see here. Just hallways\u2026 and echoes of decisions
-    you didn\u2019t make."
-  - You walked forward. You could have gone back. You did not.
-  - The walls were too clean, too perfect. You still kept walking.
-  - "Walk. That\u2019s all you ever do. But maybe this time, you\u2019ll notice what\u2019s
-    different."
-  - "Don\u2019t worry. I\u2019ll be with you the whole way. I always am."
-  - "You like the quiet, don\u2019t you? The safety in repetition."
-  - You did not know what was beneath the floor, or behind the ceiling, or inside
-    the walls.
-  - Someone-or something-had been here before. You could feel it. Not in your mind.
-    Not yet.
-  - Every step sounds the same. Perfect. Predictable. Controlled
-  - I used to count how many times you turned left. I stopped after a hundred
-  - You reached another hallway. It was identical to the last. And the one before
-    that.
-  - You wondered, for a moment, if you had been walking forever.
-  - You were right, you told yourself. You always were.
-  - "Sometimes, I hear you humming. You don\u2019t even realize it."
-  - What you did not know was that the hallway had a memory. And it remembered everything
-    you had forgotten.
-  - You kept walking and walking but the hallway kept you.
-  - You paused. And then moved. The decision was yours, wasn't it?
-  - "It\u2019s getting colder now. Do you feel it?"
-  - "The sound you hear isn\u2019t the vent... it\u2019s breathing. Slow. Familiar."
-  - "Pretend it didn\u2019t happen. You\u2019re good at that."
-  - "It\u2019s quieter now. Just the two of us again."
-  - "Keep walking. You\u2019ll forget soon enough"
-  - Have you ever wonder why there is this annoying narrator?
-  - Well, let me tell you... I am actually inside your head
-  - You created me and all I did was narrating.
-  - Something shifted behind the walls.
-  - "You were certain this hallway ended at a door. It doesn\u2019t anymore."
-  - "The last person who made it this far didn\u2019t come back the same."
-  - Something wrote your name on the patient chart. The ink is still wet.
-  - Something wrote your name on the patient chart. The ink is still wet.
-  - "The vents are whispering again. Don\u2019t listen too long."
-  - "You told yourself it wasn\u2019t your fault. Over and over."
-  - "You told yourself it wasn\u2019t your fault. Over and over."
-  - The floor tiles count your steps. You always stop at the same number.
+  casualLines: []
   casualDelay: 5
   eventLineDelay: 3
   fadeDuration: 1
@@ -38115,3 +38127,4 @@ SceneRoots:
   - {fileID: 715224684}
   - {fileID: 389146687}
   - {fileID: 1361846861}
+  - {fileID: 215007484}

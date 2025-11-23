@@ -20,6 +20,8 @@ public class NextLevel : MonoBehaviour
     {
         NarratorSystem.Instance.TriggerEvent(NarratorState.Ending);
         yield return new WaitForSeconds(time);
+        LevelManager.instance.chosenLevel = 1;
+        FloorManager.Instance.currentFloorDialogue = 1;
         moveToNextLevels("Level1");
     }
 }
