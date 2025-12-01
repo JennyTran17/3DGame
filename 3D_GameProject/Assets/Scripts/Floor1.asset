@@ -112,7 +112,7 @@ MonoBehaviour:
     lines:
     - 'Wait, where are you going? '
     - Other floors won't make any difference.
-    - Dont' leave!
+    - Don't leave!
     triggerOnce: 1
     triggered: 0
   - state: 8

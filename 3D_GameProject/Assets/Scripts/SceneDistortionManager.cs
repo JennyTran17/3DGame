@@ -83,7 +83,7 @@ public class SceneDistortionManager : MonoBehaviour
             if (player != null)
             {
                 // Decide how far in front of player to spawn
-                float spawnDistance = 3f;
+                float spawnDistance = 4f;
 
                 // Spawn position in front of player
                 Vector3 spawnPos = player.transform.position + player.transform.forward * spawnDistance;

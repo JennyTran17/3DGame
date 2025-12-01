@@ -48,9 +48,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7401994652234660800, guid: 3e67c48e3f84a304b9fcc6acb9a006da, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -3753231148530268383, guid: 3e67c48e3f84a304b9fcc6acb9a006da, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -2903519352441492794, guid: 3e67c48e3f84a304b9fcc6acb9a006da, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -39065205915219276, guid: 3e67c48e3f84a304b9fcc6acb9a006da, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3e67c48e3f84a304b9fcc6acb9a006da, type: 3}
       propertyPath: m_Name
-      value: Obraz01
+      value: painting
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3e67c48e3f84a304b9fcc6acb9a006da, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
