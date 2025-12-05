@@ -6,30 +6,24 @@ using UnityEngine;
 public class RandomAmbientAudio : MonoBehaviour
 {
     [Header("Audio Clips")]
-    [Tooltip("List of creepy ambient clips like whispers, creaks, knocks, etc.")]
     public List<AudioClip> ambientClips = new List<AudioClip>();
 
     [Header("Timing Settings")]
-    [Tooltip("Time range between each random sound (in seconds).")]
+    //Time range between each random sound (in seconds)
     public Vector2 timeBetweenSounds = new Vector2(10f, 30f);
 
     [Header("Audio Effects")]
-    [Tooltip("Randomize pitch slightly to make each sound less repetitive.")]
     public Vector2 pitchRange = new Vector2(0.9f, 1.1f);
 
-    [Tooltip("Random volume range for variation.")]
     public Vector2 volumeRange = new Vector2(0.7f, 1.0f);
 
-    [Tooltip("Random Doppler level (how quickly the pitch changes when moving).")]
     public Vector2 dopplerRange = new Vector2(0.0f, 2.0f);
 
-    [Tooltip("How 3D the sound is. 0 = 2D, 1 = fully 3D.")]
     [Range(0f, 1f)] public float spatialBlend = 1f;
 
-    [Tooltip("Where the sound is. -1 = left, 1 = right.")]
     [Range(-1f, 1f)] public float stereoPan = 0f;
 
-    [Tooltip("Max distance where sound can be heard.")]
+    //Max distance where sound can be heard
     public float maxDistance = 30f;
 
     private AudioSource audioSource;
@@ -59,7 +53,7 @@ public class RandomAmbientAudio : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("RandomAmbientAudio: No audio clips assigned!");
+            Debug.Log("RandomAmbientAudio: No audio clips assigned!");
         }
     }
 

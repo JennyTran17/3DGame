@@ -65,7 +65,7 @@ public class NarratorSystem : MonoBehaviour
             events = new List<NarratorEvent>();
             foreach (var p in profile.eventPresets)
             {
-                // Clone events so the "triggered" flag does not modify original profile
+                // Create a copy of events so the "triggered" flag does not modify original profile
                 NarratorEvent clone = new NarratorEvent
                 {
                     state = p.state,

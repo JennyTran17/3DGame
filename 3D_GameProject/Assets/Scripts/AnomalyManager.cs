@@ -12,12 +12,12 @@ public class AnomalyManager : MonoBehaviour
 
     [Header("Settings")]
     public int totalHallways = 10;
-    public int numberOfAnomalies = 7; // How many anomalies you want in total
+    public int numberOfAnomalies = 7; 
 
     private GameObject currentAnomaly;
     private List<int> anomalyHallways = new List<int>();
     private int currentIndex = 0;
-    private int lastUsedSpawnIndex = -1; // -1 means no spawn yet
+    private int lastUsedSpawnIndex = -1; // no spawn yet
 
 
     private void Awake()
@@ -34,7 +34,7 @@ public class AnomalyManager : MonoBehaviour
     {
         List<int> allPossibleHallways = new List<int>();
 
-        // Populate from 2 to totalHallways
+        // Start from 2 to totalHallways
         for (int i = 2; i < totalHallways; i++)
         {
             allPossibleHallways.Add(i);
@@ -50,7 +50,6 @@ public class AnomalyManager : MonoBehaviour
             allPossibleHallways[randomIndex] = temp;
         }
 
-        // Take the first N and sort them
         anomalyHallways = allPossibleHallways.Distinct().ToList().GetRange(0, numberOfAnomalies);
         anomalyHallways.Sort(); // Ensure numerical order
         Debug.Log("Anomalies will spawn at hallways: " + string.Join(", ", anomalyHallways));
@@ -76,29 +75,26 @@ public class AnomalyManager : MonoBehaviour
 
                     Transform spawnPoint = reverseMode ? anomalySpawns[1] : anomalySpawns[0];
                     currentAnomaly = Instantiate(randomAnomaly, spawnPoint.position, spawnPoint.rotation);
-                    Debug.Log($"Anomaly '{randomAnomaly.name}' spawned at hallway {hallway} | ReverseMode: {reverseMode}");
+                    Debug.Log($"Anomaly '{randomAnomaly.name}' spawned at hallway {hallway}. ReverseMode: {reverseMode}");
 
 
                     lastUsedSpawnIndex = reverseMode ? 1 : 0;
-
-                    
-                    
+    
                 }
                 else
                 {
-                    Debug.LogWarning("You need at least 2 spawn points in 'anomalySpawns' for alternating positions.");
+                    Debug.LogWarning("No spawn points.");
                 }
 
             }
             else
             {
-                Debug.LogWarning("No anomaly prefabs assigned to AnomalyManager.");
+                Debug.LogWarning("No anomaly prefabs assigned");
             }
 
             currentIndex++;
         }
 
-        // Example: spawn elevator at hallway 10
         if (hallway == 10)
         {
             Debug.Log("Elevator appears!");

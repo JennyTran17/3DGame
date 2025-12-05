@@ -16,6 +16,9 @@ public class LightFlicker : MonoBehaviour
 
     private Coroutine morseRoutine;
 
+    //Not using update because only need to start/stop the flicker when enabled/disabled
+    //improves performance slightly by avoiding unnecessary checks every frame
+    //coroutine handles timing internally, so no need for per-frame updates
     private void OnEnable()
     {
         if (lightOB == null)
@@ -24,7 +27,7 @@ public class LightFlicker : MonoBehaviour
             return;
         }
 
-        // Restart the morse flicker whenever this object becomes active
+        // Restart the morse flicker 
         morseRoutine = StartCoroutine(MorseFlicker());
     }
 

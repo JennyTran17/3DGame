@@ -52,7 +52,8 @@ public class LevelManager : MonoBehaviour
             // If the current player input matches the expected input in the correct sequence
             if (inputSequence[i] == levelSequence[correctSequenceIndex])
             {
-                correctSequenceIndex++; // Move to the next expected input in the correct sequence
+                // Move to the next expected input in the correct sequence
+                correctSequenceIndex++; 
 
                 // If the entire correct sequence has been matched
                 if (correctSequenceIndex == levelSequence.Length)
@@ -89,7 +90,7 @@ public class LevelManager : MonoBehaviour
             case 9: index = 9; break;
         }
         Debug.Log("go to floor " + index);
-        //only 2 levels can be gone to, the rest will trigger narratorsystem
+        
         FloorManager.Instance.currentFloorDialogue = chosenLevel;
 
         if (chosenLevel == 1)
@@ -115,7 +116,7 @@ public class LevelManager : MonoBehaviour
         //set keypad inactive
         keypad.ToggleOff();
 
-        //cinemachine rumbled (play elevator moving sound)
+        //play elevator moving sound
         StartCoroutine(playSoundEffect());
 
 
@@ -147,12 +148,4 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    //IEnumerator loadFloor(string level)
-    //{
-    //    yield return new WaitForSeconds(12.5f);
-       
-        
-
-
-    //}
 }

@@ -7,6 +7,7 @@ public class SceneDistortionManager : MonoBehaviour
 {
     [Header("Audio Settings")]
     public AudioSource ambientAudio; // Main ambient source
+    public AudioSource distortionAudio; // Distortion sound effect
     public Vector2 eventIntervalRange = new Vector2(60f, 200f); // Time between events
     public Vector2 muteDurationRange = new Vector2(1.5f, 3f);
     public float fadeSpeed = 2f;
@@ -19,18 +20,17 @@ public class SceneDistortionManager : MonoBehaviour
     [Header("Scare Objects")]
     public List<GameObject> scareObjects = new List<GameObject>();
     public bool useScareObjects = true;
-    public Vector2 scareVisibleTimeRange = new Vector2(0.5f, 2f);
 
     
     private bool isEventRunning = false;
 
     void Start()
     {
-        if (ambientAudio == null)
-            ambientAudio = FindObjectOfType<AudioSource>();
 
         if (blackoutCanvas != null)
+        {
             blackoutCanvas.color = new Color(0f, 0f, 0f, 0f);
+        }
 
         StartCoroutine(EventLoop());
     }
@@ -43,7 +43,9 @@ public class SceneDistortionManager : MonoBehaviour
             yield return new WaitForSeconds(waitTime);
 
             if (!isEventRunning)
+            {
                 StartCoroutine(TriggerDistortionEvent());
+            }
         }
     }
 
@@ -88,7 +90,6 @@ public class SceneDistortionManager : MonoBehaviour
                 // Spawn position in front of player
                 Vector3 spawnPos = player.transform.position + player.transform.forward * spawnDistance;
 
-                // Match Y height to player
                 spawnPos.y = player.transform.position.y;
 
                 if (!chosen.activeSelf)
@@ -98,7 +99,6 @@ public class SceneDistortionManager : MonoBehaviour
                 }
                 else
                 {
-                    // Move existing scene object
                     chosen.transform.position = spawnPos;
                 }
 
@@ -107,26 +107,28 @@ public class SceneDistortionManager : MonoBehaviour
             }
 
             chosen.SetActive(true);
-           
+
         }
 
-        // 5. Hold blackout for a while
+        // 5. Blackout for a while
         yield return new WaitForSeconds(blackoutDuration);
 
         // 6. Fade back from blackout
         if (useBlackout && blackoutCanvas != null)
         {
             Blackout(0f);
-            chosen.GetComponent<AudioSource>().enabled = true;
-            yield return new WaitForSeconds(1.5f);
+            distortionAudio.Play(); 
+
+
+            yield return new WaitForSeconds(2f);
             Blackout(1f);
             
         }
         
-        // 7. Wait briefly then deactivate scare object
+        // 7. Wait briefly before deactivate scare object
         if (chosen != null)
         {
-            yield return new WaitForSeconds(Random.Range(scareVisibleTimeRange.x, scareVisibleTimeRange.y));
+            yield return new WaitForSeconds(2);
             Destroy(chosen);
         }
 
@@ -136,7 +138,7 @@ public class SceneDistortionManager : MonoBehaviour
             Blackout(0f);
         }
 
-        // 8. Fade audio back in
+        // 8. Fade audio in
         while (ambientAudio.volume < originalVolume)
         {
             ambientAudio.volume += Time.deltaTime * fadeSpeed;

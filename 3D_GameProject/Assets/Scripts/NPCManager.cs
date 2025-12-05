@@ -9,7 +9,6 @@ public class NPCManager : MonoBehaviour
     public GameObject manB; // Walks 1 - 4 (Reverse mode)
 
     [Header("Spawn Settings")]
-    [Tooltip("How many unique hallways each NPC can appear in per loop.")]
     public int totalRandomHallwaysPerMan = 3;
 
     public int minHallway = 2;

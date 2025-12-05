@@ -6,10 +6,9 @@ public class PlayerInteract : MonoBehaviour
 {
     [Header("Settings")]
     public float playerReach = 10f;
-    public Transform pickUpParent;  // Where held items go (e.g. under camera)
+    public Transform pickUpParent; 
     [SerializeField] GameObject flashlight;
 
-    [Header("Runtime")]
     private Interactable currentInteractable;
     private GameObject inHandItem;
     private Rigidbody inHandRb;
@@ -48,7 +47,7 @@ public class PlayerInteract : MonoBehaviour
 
     void CheckInteraction()
     {
-        int layerMask = ~LayerMask.GetMask("Player");
+        int layerMask = ~LayerMask.GetMask("Player"); // Invert mask to hit everything except player
         Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
         RaycastHit hit;
 
@@ -89,7 +88,7 @@ public class PlayerInteract : MonoBehaviour
         }
         else
         {
-            interactable.Interact(); // Normal UnityEvent-based interactions (doors, buttons, etc.)
+            interactable.Interact(); 
         }
     }
 

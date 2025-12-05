@@ -51,7 +51,7 @@ public class LoopManager : MonoBehaviour
         }
         else if (!anomalyActive && isReverseMode)
         {
-            // Anomaly is gone, but we're still in reverse mode
+            // Anomaly is gone, but still in reverse mode
             isReverseMode = true;
         }
         else if(anomalyActive && isReverseMode)

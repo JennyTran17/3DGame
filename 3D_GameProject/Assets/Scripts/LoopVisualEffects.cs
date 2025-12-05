@@ -10,8 +10,10 @@ public class LoopVisualEffects : MonoBehaviour
     [Header("General Intensity Control")]
     public float baseWeight = 0.3f;
     public float maxWeight = 1.0f;
-    public float smoothSpeed = 0.8f;        // How quickly values interpolate
-    public float intensityGrowthRate = 0.001f; // How fast the effects increase over time
+    // How quickly values interpolate
+    public float smoothSpeed = 0.8f;
+    // How fast the effects increase over time
+    public float intensityGrowthRate = 0.001f; 
 
     [Header("Vignette Settings")]
     public float maxVignetteIntensity = 0.4f;
@@ -27,7 +29,8 @@ public class LoopVisualEffects : MonoBehaviour
     private ChromaticAberration chromaticAberration;
     private FilmGrain filmGrain;
 
-    private float progressT;         // 0-1 over game progression
+    // 0-1 over game progression visual intensity
+    private float progressT;         
     private float currentWeight;
     private float currentVignette;
     private float currentChromatic;
@@ -67,12 +70,13 @@ public class LoopVisualEffects : MonoBehaviour
         currentChromatic = Mathf.Lerp(currentChromatic, Mathf.Lerp(0f, maxChromaticAberration, progressT), Time.deltaTime * smoothSpeed);
 
         if (enableFilmGrain)
+        {
             currentGrain = Mathf.Lerp(currentGrain, Mathf.Lerp(0f, maxFilmGrainIntensity, progressT), Time.deltaTime * smoothSpeed);
-
+        }
         // Apply the values
-        if (vignette != null) vignette.intensity.value = currentVignette;
-        if (chromaticAberration != null) chromaticAberration.intensity.value = currentChromatic;
-        if (filmGrain != null && enableFilmGrain) filmGrain.intensity.value = currentGrain;
+        if (vignette != null) { vignette.intensity.value = currentVignette; }
+        if (chromaticAberration != null) { chromaticAberration.intensity.value = currentChromatic; }
+        if (filmGrain != null && enableFilmGrain) { filmGrain.intensity.value = currentGrain; }
 
         globalVolume.weight = currentWeight;
     }

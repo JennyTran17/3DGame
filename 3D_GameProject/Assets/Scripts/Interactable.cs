@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour
 {
-    public string message = "Press LMB to interact";
+    public string message = "Left click to interact";
     public UnityEvent onInteraction;
 
     public virtual void Interact()

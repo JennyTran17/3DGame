@@ -19,10 +19,6 @@ public class FloorManager : MonoBehaviour
 
     public NarrationProfile GetCurrentProfile()
     {
-        // Always get the LevelManager dynamically in case scene changed
-        //LevelManager levelManager = FindObjectOfType<LevelManager>();
-        //if (levelManager != null)
-        //    currentFloorDialogue = levelManager.chosenLevel;
 
         // Clamp to max profile index
         if (currentFloorDialogue >= profiles.Count)
