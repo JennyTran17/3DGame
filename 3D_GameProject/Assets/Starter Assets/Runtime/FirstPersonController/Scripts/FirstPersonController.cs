@@ -51,8 +51,13 @@ namespace StarterAssets
 		[Tooltip("How far in degrees can you move the camera down")]
 		public float BottomClamp = -90.0f;
 
-		// cinemachine
-		private float _cinemachineTargetPitch;
+		[Header("Audio")]
+		public AudioSource walkingAudio;
+        private float walkingVolumeTarget = 0f;
+        private float walkingVolumeSmooth = 0f;
+
+        // cinemachine
+        private float _cinemachineTargetPitch;
 
 		// player
 		private float _speed;
@@ -160,7 +165,13 @@ namespace StarterAssets
 
 			// note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
 			// if there is no input, set the target speed to 0
-			if (_input.move == Vector2.zero) targetSpeed = 0.0f;
+			if (_input.move == Vector2.zero)
+			{
+				targetSpeed = 0.0f;
+                //if (walkingAudio.isPlaying)
+                //    walkingAudio.Pause();
+                walkingVolumeTarget = 0f; // idle
+            }
 
 			// a reference to the players current horizontal velocity
 			float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
@@ -192,11 +203,24 @@ namespace StarterAssets
 			{
 				// move
 				inputDirection = transform.right * _input.move.x + transform.forward * _input.move.y;
-			}
+                //if (!walkingAudio.isPlaying)
+                //    walkingAudio.Play();
+                walkingVolumeTarget = 0.2f; // walking
+            }
 
-			// move the player
-			_controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
-		}
+            // Smooth volume change (instant sound start, no lag on stop)
+            walkingVolumeSmooth = Mathf.Lerp(walkingVolumeSmooth, walkingVolumeTarget, Time.deltaTime * 10f);
+            walkingAudio.volume = walkingVolumeSmooth;
+            if (!walkingAudio.isPlaying)
+            {
+                walkingAudio.loop = true;
+                walkingAudio.Play();
+            }
+
+            // move the player
+            _controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+            
+        }
 
 		private void JumpAndGravity()
 		{

@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc730475ed18dc949b8c9fd8435ab43e, type: 3}
+  m_Name: Floor2
+  m_EditorClassIdentifier: 
+  introLines: []
+  casualLines:
+  - You came back again. I wasn't sure you would.
+  - You see, you can never escape this unless you listen to me
+  - But I know you too well, you will not.
+  - So instead of helping you again. I will let you try yourself and see at the end
+    who is correct.
+  - Maybe then you will realise why you are here in the first place.
+  - Let me tell you a story.
+  - '"Once upon a time, there was an elevator that brought people to every floor.'
+  - A person named A stepped inside, pressed a button, and let the doors close.
+  - "It felt ordinary at first. But one day, the elevator stopped at a floor A didn\u2019t
+    recognize. "
+  - The doors slid open to a narrow hallway, dimly lit, silent. The walls seemed
+    to hum faintly, like a memory trying to speak.
+  - A walked. At the far end, a figure waited. Always waiting. Watching.
+  - "The first time, A didn\u2019t notice it, not really. But over the days, every
+    time the elevator opened to that floor, the figure was there."
+  - "It never approached. It didn\u2019t speak. But it stared. Always watching."
+  - But one day, it moved, forcing A to meet its gaze.
+  - "A felt a pull, a strange urgency in that gaze. Something it wanted A to see.
+    Something to remember. Something forgotten, hidden in the edges of A\u2019s mind."
+  - Every day, the figure traced shapes in the air, pressed hands to the wall, left
+    scratches and marks. It whispered through the silence, soft, insistent, though
+    A could never hear the words clearly.
+  - 'A began to notice patterns. A sequence of numbers scratched into the walls.
+    A faint melody that played in the hum of the lights. '
+  - Each clue pulled at the edges of memory, unlocking fragments of a night they
+    could barely recall.
+  - And then one day, the figure was closer than ever.
+  - "A realized, with a cold, sinking certainty, that the figure wasn\u2019t just
+    waiting, it had been waiting for them. Waiting for A to remember, to see the
+    truth."
+  - The hallway pulsed with unspoken urgency. Something had happened. And A was involved"
+  - ..
+  - ..
+  - ..
+  - I suppose you don't take me seriously, do you? You didn't even listen to my story
+    at all.
+  - Because if you did, you could have figured it out already.
+  - Fine... let me ask you a question.
+  - Who do you think A is?
+  - 'Okay, fine maybe i should shut up. '
+  - .
+  - .
+  - .
+  - .
+  - .
+  - .
+  - .
+  - .
+  - .
+  - .
+  - .
+  - .
+  - .
+  - .
+  - .
+  - .
+  - .
+  eventPresets:
+  - state: 2
+    lines:
+    - You saw it before, what do you think it means?
+    - Who wrote it?
+    triggerOnce: 1
+    triggered: 0
+  - state: 1
+    lines:
+    - In a few seconds, you will pick up the flashlight again
+    triggerOnce: 1
+    triggered: 0
+  - state: 3
+    lines:
+    - 'The sound... its telling you something. '
+    - Shhh.... something is approaching
+    triggerOnce: 1
+    triggered: 0
+  - state: 4
+    lines:
+    - You heard it again, right?
+    - I think i know what it is
+    - And i think you know it too
+    triggerOnce: 1
+    triggered: 0
+  - state: 5
+    lines:
+    - Oh him again, walking in his dreams
+    - He has been here longer than you, trying to find the exit
+    - Don't breath near him, it will wake him up
+    triggerOnce: 1
+    triggered: 0
+  - state: 6
+    lines:
+    - You found the elevator again.
+    - Maybe this time, you should stay inside and wait instead
+    - Don't go back outside.
+    - Stay where the light is
+    triggerOnce: 1
+    triggered: 0
+  - state: 7
+    lines:
+    - Wait... where are you going?
+    - We might restart again.
+    - No.... Don't!
+    triggerOnce: 1
+    triggered: 0
+  - state: 8
+    lines:
+    - What?! You figured it out?
+    - But did you know the truth?
+    - 'I warn you: there is no escape.'
+    - Because there is no reality
+    triggerOnce: 1
+    triggered: 0

@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc730475ed18dc949b8c9fd8435ab43e, type: 3}
+  m_Name: Floor1
+  m_EditorClassIdentifier: 
+  introLines: []
+  casualLines:
+  - 'You are in the elevator wanting to go home. '
+  - After a long day being stucked in the office, what is better than a relaxing
+    evening on your couches, watching your favourite movie
+  - But then you realised, why haven't you gotten out of the elevator yet?
+  - And why is there no Ground Floor?
+  - You click the open button, and walk forward. You could have gone back. You did
+    not.
+  - The walls were too clean, too perfect. You still kept walking.
+  - Walk. To find the exit or maybe to notice something different than this plain
+    boring hallway
+  - Wait... You thought. Why is the hallway not ending?
+  - You reached another hallway. It was identical to the last. And the one before
+    that.
+  - You wondered, for a moment, if you had been walking forever.
+  - Should you go back? But the elevator is not there anymore!
+  - You kept walking and walking but the hallway kept you.
+  - You paused. And then moved. The decision was yours, wasn't it?
+  - You were right, you told yourself. You always were.
+  - You did not know what was beneath the floor, or behind the ceiling, or inside
+    the walls.
+  - You did not know what was beneath the floor, or behind the ceiling, or inside
+    the walls.
+  - Someone-or something-had been here before. You could feel it. Not in your mind.
+    Not yet.
+  - Every step sounds the same. Perfect. Predictable. Controlled
+  - What you did not know was that the hallway had a memory. And it remembered everything
+    you had forgotten.
+  - "It\u2019s getting colder now. Do you feel it?"
+  - "The sound you hear isn\u2019t the vent... it\u2019s breathing. Slow. Familiar."
+  - "Pretend it didn\u2019t happen. You\u2019re good at that."
+  - "Keep walking. You\u2019ll forget soon enough"
+  - "Don\u2019t worry. I\u2019ll be with you the whole way. I always am."
+  - Have you ever wonder why there is this annoying narrator?
+  - Well, let me tell you... I am actually inside your head
+  - You created me and all I did was narrating.
+  - Something shifted behind the walls.
+  - "You were certain this hallway ended at a door. It doesn\u2019t anymore."
+  - "The last person who made it this far didn\u2019t come back the same."
+  - Something wrote your name on the patient chart. The ink is still wet.
+  - "The vents are whispering again. Don\u2019t listen too long."
+  - "You told yourself it wasn\u2019t your fault. Over and over."
+  - But have you ever wondered why you are trapped here?
+  - Was this all a dream or your own hallucination?
+  - We never know... we never know.....
+  eventPresets:
+  - state: 2
+    lines:
+    - You shouldn't have looked at that
+    - I didn't write it.
+    - You don't want to know what it means.
+    triggerOnce: 1
+    triggered: 0
+  - state: 1
+    lines:
+    - Ah light. In a few seconds, you will definitely pick it up.
+    - Turn it on. Press F
+    - "Last time you had that, you saw something you weren\u2019t meant to"
+    triggerOnce: 1
+    triggered: 0
+  - state: 3
+    lines:
+    - Hold on... Did you hear that?
+    - The walls are thinner now. The sounds leak through
+    triggerOnce: 1
+    triggered: 0
+  - state: 4
+    lines:
+    - You heard it again, didn't you?
+    - It's getting closer. The sound. The memory.
+    - Maybe it is your memory
+    - Maybe it's trying to tell you something
+    - Have you ever thought that you were dead already
+    - You should have left when you could
+    triggerOnce: 1
+    triggered: 0
+  - state: 5
+    lines:
+    - Oh, him again. Still walking. Still pretending
+    - "He thinks this corridor leads home. He\u2019s wrong, but I let him dream."
+    - "Don\u2019t speak to him. He\u2019ll mistake you for someone he buried."
+    - Or maybe he is dead as well.
+    - "When he passes you, don\u2019t breathe. It confuses him."
+    triggerOnce: 1
+    triggered: 0
+  - state: 6
+    lines:
+    - "Did you really think there\u2019d be an ending?"
+    - "You\u2019ve done this before. I\u2019ve said these words before."
+    - "Maybe this time you\u2019ll listen."
+    - "Don\u2019t turn around. Not yet."
+    - ...
+    - "It\u2019s behind you."
+    triggerOnce: 1
+    triggered: 0
+  - state: 7
+    lines:
+    - 'Wait, where are you going? '
+    - Other floors won't make any difference.
+    - Don't leave!
+    triggerOnce: 1
+    triggered: 0
+  - state: 8
+    lines:
+    - What!? How? You found the secret code.
+    - But... did you know that, there is no such thing as 'exit'
+    triggerOnce: 1
+    triggered: 0
